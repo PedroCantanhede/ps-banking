@@ -126,12 +126,13 @@
 
       <!-- Deposit Amount Input -->
       <div class="modern-card p-6">
-        <label class="block text-white/80 text-sm font-medium mb-4">{$Locales.amount}</label>
+        <label for="deposit-amount" class="block text-white/80 text-sm font-medium mb-4">{$Locales.amount}</label>
         <div class="relative">
           <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/40">
             <i class="fas fa-dollar-sign"></i>
           </div>
           <input
+            id="deposit-amount"
             type="number"
             class="w-full bg-white/5 text-white text-xl font-semibold pl-12 pr-4 py-4 rounded-xl border border-white/10 focus:outline-none focus:border-green-500/50 transition-colors"
             placeholder={$Locales.enter_amount}
@@ -193,12 +194,12 @@
           <div class="text-right">
             <p class="text-white/60 text-sm">{$Locales.depositing}</p>
             <p class="text-xl font-bold text-green-400">
-                              {#if depositAmount >= 1000000}
-                  R$ {(depositAmount / 1000000).toFixed(1)}M
-                {:else if depositAmount >= 1000}
-                  R$ {(depositAmount / 1000).toFixed(1)}K
+                              {#if (depositAmount || 0) >= 1000000}
+                  R$ {((depositAmount || 0) / 1000000).toFixed(1)}M
+                {:else if (depositAmount || 0) >= 1000}
+                  R$ {((depositAmount || 0) / 1000).toFixed(1)}K
                 {:else}
-                  R$ {depositAmount.toLocaleString()}
+                  R$ {(depositAmount || 0).toLocaleString()}
                 {/if}
             </p>
           </div>

@@ -136,7 +136,7 @@
                   R$ {(transaction.amount || 0).toLocaleString()}
                 {/if}
                 </span>
-              </div>
+
 
               {#if !transaction.isPaid}
                 <button

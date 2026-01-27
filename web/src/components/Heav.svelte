@@ -130,12 +130,13 @@
 
       <!-- Withdraw Amount Input -->
       <div class="modern-card p-6">
-        <label class="block text-white/80 text-sm font-medium mb-4">{$Locales.amount}</label>
+        <label for="withdraw-amount" class="block text-white/80 text-sm font-medium mb-4">{$Locales.amount}</label>
         <div class="relative">
           <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/40">
             <i class="fas fa-dollar-sign"></i>
           </div>
           <input
+            id="withdraw-amount"
             type="number"
             class="w-full bg-white/5 text-white text-xl font-semibold pl-12 pr-4 py-4 rounded-xl border border-white/10 focus:outline-none focus:border-red-500/50 transition-colors"
             placeholder={$Locales.enter_amount}
@@ -197,12 +198,12 @@
           <div class="text-right">
             <p class="text-white/60 text-sm">{$Locales.you_will_receive}</p>
             <p class="text-xl font-bold text-red-400">
-                              {#if withdrawAmount >= 1000000}
-                  R$ {(withdrawAmount / 1000000).toFixed(1)}M
-                {:else if withdrawAmount >= 1000}
-                  R$ {(withdrawAmount / 1000).toFixed(1)}K
+                              {#if (withdrawAmount || 0) >= 1000000}
+                  R$ {((withdrawAmount || 0) / 1000000).toFixed(1)}M
+                {:else if (withdrawAmount || 0) >= 1000}
+                  R$ {((withdrawAmount || 0) / 1000).toFixed(1)}K
                 {:else}
-                  R$ {withdrawAmount.toLocaleString()}
+                  R$ {(withdrawAmount || 0).toLocaleString()}
                 {/if}
             </p>
           </div>

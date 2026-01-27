@@ -268,7 +268,13 @@
   <!-- Quick Actions Grid -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
     <!-- Transfer Money -->
-    <div class="modern-card modern-card-hover p-6 group cursor-pointer" on:click={openModal}>
+    <div
+      class="modern-card modern-card-hover p-6 group cursor-pointer"
+      role="button"
+      tabindex="0"
+      on:click={openModal}
+      on:keyup={(e) => e.key === 'Enter' && openModal()}
+    >
       <div class="flex items-center justify-between mb-4">
         <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
           <i class="fas fa-exchange-alt text-blue-400 text-xl"></i>
@@ -280,7 +286,13 @@
     </div>
 
     <!-- Pay Bills -->
-    <div class="modern-card modern-card-hover p-6 group cursor-pointer" on:click={() => showSureModalBills.set(true)}>
+    <div
+      class="modern-card modern-card-hover p-6 group cursor-pointer"
+      role="button"
+      tabindex="0"
+      on:click={() => showSureModalBills.set(true)}
+      on:keyup={(e) => e.key === 'Enter' && showSureModalBills.set(true)}
+    >
       <div class="flex items-center justify-between mb-4">
         <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center group-hover:bg-orange-500/30 transition-colors">
           <i class="fas fa-file-invoice-dollar text-orange-400 text-xl"></i>
@@ -292,8 +304,13 @@
     </div>
 
     <!-- Withdraw -->
-    <div class="modern-card modern-card-hover p-6 group cursor-pointer" on:click={() => {
-      if ($bankBalance <= 0) {
+    <div
+      class="modern-card modern-card-hover p-6 group cursor-pointer"
+      role="button"
+      tabindex="0"
+      on:keyup={() => {}}
+      on:click={() => {
+        if ($bankBalance <= 0) {
         Notify($Locales.no_money_on_account, $Locales.error, "credit-card");
       } else {
         Notify($Locales.withdraw_all_success, $Locales.success, "credit-card");
@@ -311,8 +328,13 @@
     </div>
 
     <!-- Deposit -->
-    <div class="modern-card modern-card-hover p-6 group cursor-pointer" on:click={() => {
-      if ($currentCash <= 0) {
+    <div
+      class="modern-card modern-card-hover p-6 group cursor-pointer"
+      role="button"
+      tabindex="0"
+      on:keyup={() => {}}
+      on:click={() => {
+        if ($currentCash <= 0) {
         Notify($Locales.no_cash_on_you, $Locales.error, "coins");
       } else {
         Notify($Locales.deposit_all_success, $Locales.success, "coins");
@@ -537,7 +559,7 @@
 
       <!-- Payment Method Selection -->
       <div class="mb-6">
-        <label class="block text-white/80 font-medium mb-3">{$Locales.payment_method}</label>
+        <span class="block text-white/80 font-medium mb-3">{$Locales.payment_method}</span>
         <div class="space-y-3">
           {#if phone}
             <label class="flex items-center p-4 bg-white/5 rounded-xl cursor-pointer border border-white/10 hover:border-white/20 transition-colors">
@@ -578,7 +600,7 @@
       <!-- ID or Phone Number Input -->
       {#if $transferData.contactType === "phone" || $transferData.contactType === "id"}
         <div class="mb-6">
-          <label class="block text-gray-400 mb-2">
+          <label for="transfer-id-phone" class="block text-gray-400 mb-2">
             <i class="fa-duotone fa-id-card text-blue-400 mr-2"></i>
             {#if phone}
               {$Locales.id_or_phone_number}
@@ -588,6 +610,7 @@
           </label>
           <div class="relative">
             <input
+              id="transfer-id-phone"
               type="number"
               min="1"
               class="w-full p-3 bg-gray-700/50 text-white pr-10 border border-blue-200/10 rounded-lg focus:outline-none
@@ -603,12 +626,13 @@
 
       <!-- Amount Input -->
       <div class="mb-6">
-        <label class="block text-gray-400 mb-2">
+        <label for="transfer-amount" class="block text-gray-400 mb-2">
           <i class="fa-duotone fa-money-bill-wave text-blue-400 mr-2"
           ></i>{$Locales.amount}
         </label>
         <div class="relative">
           <input
+            id="transfer-amount"
             type="number"
             min="1"
             class="w-full p-3 bg-gray-700/50 text-white pr-10 border border-blue-200/10 rounded-lg focus:outline-none

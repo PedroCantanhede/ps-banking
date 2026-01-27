@@ -47,30 +47,30 @@
       try {
       const response = await fetchNui("ps-banking:client:getAccounts", {});
       console.log("Raw server response:", response); // Debug log
-      
+
       // Validate response
       if (!response || !Array.isArray(response)) {
         console.error("Invalid response format:", response);
         accounts.set([]);
         return;
       }
-      
+
       // Transform server data to match frontend interface
       const transformedAccounts = response.map((account, index) => {
         try {
           console.log(`Processing account ${index}:`, account); // Debug log
-          
+
           // Validate account object
           if (!account || typeof account !== 'object') {
             console.error(`Invalid account at index ${index}:`, account);
             return null;
           }
-          
+
           // Safely extract and validate fields
           const id = account.id ? account.id.toString() : `temp_${index}`;
           const holder = account.holder && typeof account.holder === 'string' ? account.holder : $Locales.unknown_account;
           const balance = typeof account.balance === 'number' ? account.balance : 0;
-          
+
           // Safely extract account type from owner metadata
           let accountType = 'savings';
           try {
@@ -85,7 +85,7 @@
           let users = [];
           try {
             if (account.users && Array.isArray(account.users)) {
-              users = account.users.filter(user => 
+              users = account.users.filter(user =>
                 user && typeof user === 'object' && user.name && user.identifier
               );
             }
@@ -106,7 +106,7 @@
           } catch (e) {
             console.warn('Failed to extract owner:', e);
           }
-          
+
           return {
             id: id,
             name: holder,
@@ -122,7 +122,7 @@
           return null;
         }
       }).filter(account => account !== null); // Remove null entries
-      
+
       console.log("Transformed accounts:", transformedAccounts); // Debug log
       safeSetAccounts(transformedAccounts);
       } catch (error) {
@@ -166,7 +166,7 @@
 
       const result = await fetchNui("ps-banking:client:createNewAccount", newAccountData);
       console.log("Create account result:", result); // Debug log
-      
+
       if (result && result.success) {
         Notify($Locales.account_created_success, $Locales.success, "user");
         showCreateModal.set(false);
@@ -188,7 +188,7 @@
       const result = await fetchNui("ps-banking:client:deleteAccount", {
         accountId: accountId
       });
-      
+
       if (result && result.success) {
         Notify($Locales.account_deleted_success, $Locales.success, "user");
         fetchAccounts();
@@ -284,7 +284,7 @@
 
     try {
       // Add a timeout to prevent infinite waiting
-      const timeoutPromise = new Promise((_, reject) => 
+      const timeoutPromise = new Promise((_, reject) =>
         setTimeout(() => reject(new Error('Request timeout')), 10000)
       );
 
@@ -306,7 +306,7 @@
         } else {
           // Handle specific error messages
           let errorMessage = $Locales.failed_add_user;
-          
+
           if (result.message) {
             if (result.message.includes("target_player_not_found") || result.message.includes("not found")) {
               errorMessage = $Locales.player_not_found_offline;
@@ -318,7 +318,7 @@
               errorMessage = result.message;
             }
           }
-          
+
           Notify(errorMessage, $Locales.error, "user");
           console.error("Add user failed:", result);
         }
@@ -328,13 +328,13 @@
       }
     } catch (error) {
       console.error("Add user error:", error);
-      
+
       if (error.message === 'Request timeout') {
         Notify($Locales.request_timed_out, $Locales.error, "user");
       } else {
         Notify($Locales.failed_add_user, $Locales.error, "user");
       }
-      
+
       // Ensure modal stays responsive even on error
       safeCloseModal('addUser');
     } finally {
@@ -494,7 +494,7 @@
     const handleGlobalError = (event) => {
       console.error("Global error caught:", event.error);
       Notify("An error occurred. Please try again.", $Locales.error, "user");
-      
+
       // Reset modal states to prevent UI freezing
       showAddUserModal.set(false);
       showRemoveUserModal.set(false);
@@ -508,7 +508,7 @@
     window.addEventListener('unhandledrejection', (event) => {
       console.error("Unhandled promise rejection:", event.reason);
       Notify("An error occurred. Please try again.", $Locales.error, "user");
-      
+
       // Reset modal states
       showAddUserModal.set(false);
       showRemoveUserModal.set(false);
@@ -517,7 +517,7 @@
       showCreateModal.set(false);
       isAddingUser.set(false);
     });
-    
+
     // Fetch accounts with error handling
     try {
       fetchAccounts();
@@ -525,10 +525,10 @@
       console.error("Error in initial fetchAccounts:", error);
       Notify($Locales.failed_load_accounts, $Locales.error, "user");
     }
-    
+
     // Add keydown event listener
     document.addEventListener('keydown', handleKeydown);
-    
+
     return () => {
       // Cleanup event listeners
       document.removeEventListener('keydown', handleKeydown);
@@ -602,21 +602,21 @@
           <div class="flex items-center justify-between">
             <div class="flex items-center space-x-4 flex-1">
               <div class={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                account.type === 'savings' 
-                  ? 'bg-green-500/20' 
+                account.type === 'savings'
+                  ? 'bg-green-500/20'
                   : account.type === 'business'
                   ? 'bg-green-500/20'
                   : 'bg-orange-500/20'
               }`}>
                 <i class={`fas ${
-                  account.type === 'savings' 
-                    ? 'fa-piggy-bank text-green-400' 
+                  account.type === 'savings'
+                    ? 'fa-piggy-bank text-green-400'
                     : account.type === 'business'
                     ? 'fa-briefcase text-green-400'
                     : 'fa-wallet text-orange-400'
                 } text-lg`}></i>
               </div>
-              
+
               <div class="flex-1 min-w-0">
                 <div class="flex items-center space-x-2 mb-1">
                   <h3 class="text-white font-semibold truncate">{account.name}</h3>
@@ -710,7 +710,7 @@
               </div>
             </div>
           {/if}
-          
+
           <!-- Owner indicator -->
           {#if account.owner}
             <div class="mt-2 text-xs text-white/60">
@@ -760,8 +760,9 @@
 
       <div class="space-y-4">
         <div>
-          <label class="block text-white/80 text-sm font-medium mb-2">{$Locales.account_name}</label>
+          <label for="create-account-name" class="block text-white/80 text-sm font-medium mb-2">{$Locales.account_name}</label>
           <input
+            id="create-account-name"
             type="text"
             class="w-full bg-white/5 text-white px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-blue-500/50 transition-colors"
             placeholder={$Locales.enter_account_name}
@@ -770,8 +771,9 @@
         </div>
 
         <div>
-          <label class="block text-white/80 text-sm font-medium mb-2">{$Locales.account_type}</label>
+          <label for="create-account-type" class="block text-white/80 text-sm font-medium mb-2">{$Locales.account_type}</label>
           <select
+            id="create-account-type"
             class="w-full bg-white/5 text-white px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-blue-500/50 transition-colors"
             bind:value={$newAccountType}
           >
@@ -821,15 +823,16 @@
 
       <div class="space-y-4">
         <div>
-          <label class="block text-white/80 text-sm font-medium mb-2">{$Locales.account}</label>
+          <span class="block text-white/80 text-sm font-medium mb-2">{$Locales.account}</span>
           <div class="w-full bg-white/5 text-white px-4 py-3 rounded-xl border border-white/10">
             {$selectedAccountForDeposit.name}
           </div>
         </div>
 
         <div>
-          <label class="block text-white/80 text-sm font-medium mb-2">{$Locales.amount_to_deposit}</label>
+          <label for="deposit-amount" class="block text-white/80 text-sm font-medium mb-2">{$Locales.amount_to_deposit}</label>
           <input
+            id="deposit-amount"
             type="number"
             class="w-full bg-white/5 text-white px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-green-500/50 transition-colors"
             placeholder={$Locales.enter_amount}
@@ -881,15 +884,16 @@
 
       <div class="space-y-4">
         <div>
-          <label class="block text-white/80 text-sm font-medium mb-2">{$Locales.account}</label>
+          <span class="block text-white/80 text-sm font-medium mb-2">{$Locales.account}</span>
           <div class="w-full bg-white/5 text-white px-4 py-3 rounded-xl border border-white/10">
             {$selectedAccountForUser.name}
           </div>
         </div>
 
         <div>
-          <label class="block text-white/80 text-sm font-medium mb-2">{$Locales.player_id}</label>
+          <label for="add-user-id" class="block text-white/80 text-sm font-medium mb-2">{$Locales.player_id}</label>
           <input
+            id="add-user-id"
             type="number"
             class="w-full bg-white/5 text-white px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-green-500/50 transition-colors"
             placeholder={$Locales.enter_player_server_id}
@@ -958,15 +962,16 @@
 
       <div class="space-y-4">
         <div>
-          <label class="block text-white/80 text-sm font-medium mb-2">{$Locales.account}</label>
+          <span class="block text-white/80 text-sm font-medium mb-2">{$Locales.account}</span>
           <div class="w-full bg-white/5 text-white px-4 py-3 rounded-xl border border-white/10">
             {$selectedAccountForWithdraw.name}
           </div>
         </div>
 
         <div>
-          <label class="block text-white/80 text-sm font-medium mb-2">{$Locales.amount_to_withdraw}</label>
+          <label for="withdraw-amount" class="block text-white/80 text-sm font-medium mb-2">{$Locales.amount_to_withdraw}</label>
           <input
+            id="withdraw-amount"
             type="number"
             class="w-full bg-white/5 text-white px-4 py-3 rounded-xl border border-white/10 focus:outline-none focus:border-orange-500/50 transition-colors"
             placeholder={$Locales.enter_amount}
@@ -1017,14 +1022,14 @@
 
       <div class="space-y-4">
         <div>
-          <label class="block text-white/80 text-sm font-medium mb-2">{$Locales.account}</label>
+          <span class="block text-white/80 text-sm font-medium mb-2">{$Locales.account}</span>
           <div class="w-full bg-white/5 text-white px-4 py-3 rounded-xl border border-white/10">
             {$selectedAccountForRemove.name}
           </div>
         </div>
 
         <div>
-          <label class="block text-white/80 text-sm font-medium mb-2">{$Locales.select_user_to_remove}</label>
+          <span class="block text-white/80 text-sm font-medium mb-2">{$Locales.select_user_to_remove}</span>
           {#if $selectedAccountForRemove.users && $selectedAccountForRemove.users.length > 0}
             <div class="space-y-2">
               {#each $selectedAccountForRemove.users as user}
