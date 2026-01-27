@@ -230,7 +230,7 @@
     await fetchWeeklySummary();
     await updateBalances();
   }
-  
+
   async function phoneOption() {
     try {
       const response = await fetchNui("ps-banking:client:phoneOption", {});
@@ -352,8 +352,8 @@
             <span class="text-white/80">{$Locales.income}</span>
           </div>
           <span class="text-green-400 font-semibold">
-            {#if $weeklyData.totalReceived !== undefined}
-              {$weeklyData.totalReceived.toLocaleString($Currency.lang, {
+            {#if $weeklyData.totalReceived != null}
+              {($weeklyData.totalReceived || 0).toLocaleString($Currency.lang, {
                 style: "currency",
                 currency: $Currency.currency,
                 minimumFractionDigits: 0,
@@ -372,8 +372,8 @@
             <span class="text-white/80">{$Locales.expenses}</span>
           </div>
           <span class="text-red-400 font-semibold">
-            {#if $weeklyData.totalUsed !== undefined}
-              {$weeklyData.totalUsed.toLocaleString($Currency.lang, {
+            {#if $weeklyData.totalUsed != null}
+              {($weeklyData.totalUsed || 0).toLocaleString($Currency.lang, {
                 style: "currency",
                 currency: $Currency.currency,
                 minimumFractionDigits: 0,
@@ -419,7 +419,7 @@
               <div class="text-right">
                 <span class={`font-semibold ${transaction.isIncome ? "text-green-400" : "text-red-400"}`}>
                   {transaction.isIncome ? "+" : "-"}
-                  {transaction.amount.toLocaleString($Currency.lang, {
+                  {(transaction.amount || 0).toLocaleString($Currency.lang, {
                     style: "currency",
                     currency: $Currency.currency,
                     minimumFractionDigits: 0,
@@ -475,7 +475,7 @@
                   </div>
                   <span class={`font-semibold text-sm ${transaction.isIncome ? "text-green-400" : "text-red-400"}`}>
                     {transaction.isIncome ? "+" : "-"}
-                    {transaction.amount.toLocaleString($Currency.lang, {
+                    {(transaction.amount || 0).toLocaleString($Currency.lang, {
                       style: "currency",
                       currency: $Currency.currency,
                       minimumFractionDigits: 0,

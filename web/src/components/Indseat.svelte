@@ -116,7 +116,7 @@
                 {:else if $currentCash >= 1000}
                   R$ {($currentCash / 1000).toFixed(1)}K
                 {:else}
-                  R$ {$currentCash.toLocaleString()}
+                  R$ {($currentCash || 0).toLocaleString()}
                 {/if}
               </p>
             </div>

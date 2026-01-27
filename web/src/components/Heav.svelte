@@ -44,7 +44,11 @@
             currency: $Currency.currency,
             minimumFractionDigits: 0,
           }
-        )}`,
+        )} (${$Locales.available_balance}: ${($bankBalance || 0).toLocaleString($Currency.lang, {
+            style: "currency",
+            currency: $Currency.currency,
+            minimumFractionDigits: 0,
+          })})`,
         $Locales.error,
         "coins"
       );
@@ -116,7 +120,7 @@
                 {:else if $bankBalance >= 1000}
                   R$ {($bankBalance / 1000).toFixed(1)}K
                 {:else}
-                  R$ {$bankBalance.toLocaleString()}
+                  R$ {($bankBalance || 0).toLocaleString()}
                 {/if}
               </p>
             </div>

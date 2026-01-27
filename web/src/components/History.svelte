@@ -120,17 +120,17 @@
           <div class="flex items-center justify-between">
             <div class="flex items-center space-x-4 flex-1">
               <div class={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                transaction.isIncome 
-                  ? 'bg-green-500/20' 
+                transaction.isIncome
+                  ? 'bg-green-500/20'
                   : 'bg-red-500/20'
               }`}>
                 <i class={`fas ${
-                  transaction.isIncome 
-                    ? 'fa-arrow-down text-green-400' 
+                  transaction.isIncome
+                    ? 'fa-arrow-down text-green-400'
                     : 'fa-arrow-up text-red-400'
                 } text-lg`}></i>
               </div>
-              
+
               <div class="flex-1 min-w-0">
                 <div class="flex items-center space-x-2 mb-1">
                   <h3 class="text-white font-semibold truncate">{transaction.description}</h3>
@@ -146,12 +146,12 @@
             <div class="text-right">
               <span class={`text-lg font-bold ${transaction.isIncome ? "text-green-400" : "text-red-400"}`}>
                 {transaction.isIncome ? "+" : "-"}
-                {#if transaction.amount >= 1000000}
-                  R$ {(transaction.amount / 1000000).toFixed(1)}M
-                {:else if transaction.amount >= 1000}
-                  R$ {(transaction.amount / 1000).toFixed(1)}K
+                {#if (transaction.amount || 0) >= 1000000}
+                  R$ {((transaction.amount || 0) / 1000000).toFixed(1)}M
+                {:else if (transaction.amount || 0) >= 1000}
+                  R$ {((transaction.amount || 0) / 1000).toFixed(1)}K
                 {:else}
-                  R$ {transaction.amount.toLocaleString()}
+                  R$ {(transaction.amount || 0).toLocaleString()}
                 {/if}
               </span>
               <div class="text-xs text-white/50 mt-1">

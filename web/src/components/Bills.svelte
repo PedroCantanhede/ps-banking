@@ -112,7 +112,7 @@
               <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center">
                 <i class="fas fa-file-invoice text-orange-400 text-lg"></i>
               </div>
-              
+
               <div class="flex-1 min-w-0">
                 <div class="flex items-center space-x-2 mb-1">
                   <h3 class="text-white font-semibold truncate">{transaction.description}</h3>
@@ -126,15 +126,14 @@
             </div>
 
             <div class="flex items-center space-x-4">
-              <div class="text-right">
                 <span class={`text-lg font-bold ${transaction.isIncome ? "text-green-400" : "text-red-400"}`}>
                   {transaction.isIncome ? "+" : "-"}
-                                  {#if transaction.amount >= 1000000}
-                  R$ {(transaction.amount / 1000000).toFixed(1)}M
-                {:else if transaction.amount >= 1000}
-                  R$ {(transaction.amount / 1000).toFixed(1)}K
+                                  {#if (transaction.amount || 0) >= 1000000}
+                  R$ {((transaction.amount || 0) / 1000000).toFixed(1)}M
+                {:else if (transaction.amount || 0) >= 1000}
+                  R$ {((transaction.amount || 0) / 1000).toFixed(1)}K
                 {:else}
-                  R$ {transaction.amount.toLocaleString()}
+                  R$ {(transaction.amount || 0).toLocaleString()}
                 {/if}
                 </span>
               </div>
