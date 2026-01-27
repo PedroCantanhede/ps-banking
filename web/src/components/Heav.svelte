@@ -11,8 +11,8 @@
     Currency,
   } from "../store/data";
 
-  let withdrawAmount = writable(0);
-  $: newBank = $bankBalance - $withdrawAmount;
+  let withdrawAmount = 0;
+  $: newBank = ($bankBalance || 0) - (Number(withdrawAmount) || 0);
 
   async function updateBalances() {
     try {
@@ -35,9 +35,9 @@
   }
 
   async function handleWithdraw() {
-    if ($bankBalance < $withdrawAmount) {
+    if ($bankBalance < withdrawAmount) {
       Notify(
-        `${$Locales.withdraw_error} ${$withdrawAmount.toLocaleString(
+        `${$Locales.withdraw_error} ${withdrawAmount.toLocaleString(
           $Currency.lang,
           {
             style: "currency",
@@ -50,12 +50,12 @@
       );
     } else {
       const response = await fetchNui("ps-banking:client:ATMwithdraw", {
-        amount: $withdrawAmount,
+        amount: withdrawAmount,
       });
-      
+
       if (response) {
         Notify(
-          `${$Locales.withdraw_success} ${$withdrawAmount.toLocaleString(
+          `${$Locales.withdraw_success} ${withdrawAmount.toLocaleString(
             $Currency.lang,
             {
               style: "currency",
@@ -66,10 +66,10 @@
           $Locales.withdraw_success,
           "coins"
         );
-        
+
         // Update balances from server to ensure accuracy
         await updateBalances();
-        withdrawAmount.set(0);
+        withdrawAmount = 0;
       } else {
         Notify(
           `${$Locales.withdraw_error}`,
@@ -135,35 +135,35 @@
             type="number"
             class="w-full bg-white/5 text-white text-xl font-semibold pl-12 pr-4 py-4 rounded-xl border border-white/10 focus:outline-none focus:border-red-500/50 transition-colors"
             placeholder={$Locales.enter_amount}
-            bind:value={$withdrawAmount}
+            bind:value={withdrawAmount}
             max={$bankBalance}
             min="0"
           />
         </div>
-        
+
         <!-- Quick Amount Buttons -->
         <div class="grid grid-cols-4 gap-3 mt-4">
           <button
             class="px-3 py-2 bg-white/5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm"
-            on:click={() => withdrawAmount.set(Math.floor($bankBalance * 0.25))}
+            on:click={() => withdrawAmount = Math.floor($bankBalance * 0.25)}
           >
             25%
           </button>
           <button
             class="px-3 py-2 bg-white/5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm"
-            on:click={() => withdrawAmount.set(Math.floor($bankBalance * 0.5))}
+            on:click={() => withdrawAmount = Math.floor($bankBalance * 0.5)}
           >
             50%
           </button>
           <button
             class="px-3 py-2 bg-white/5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm"
-            on:click={() => withdrawAmount.set(Math.floor($bankBalance * 0.75))}
+            on:click={() => withdrawAmount = Math.floor($bankBalance * 0.75)}
           >
             75%
           </button>
           <button
             class="px-3 py-2 bg-white/5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm"
-            on:click={() => withdrawAmount.set($bankBalance)}
+            on:click={() => withdrawAmount = $bankBalance}
           >
             {$Locales.all}
           </button>
@@ -193,12 +193,12 @@
           <div class="text-right">
             <p class="text-white/60 text-sm">{$Locales.you_will_receive}</p>
             <p class="text-xl font-bold text-red-400">
-                              {#if $withdrawAmount >= 1000000}
-                  R$ {($withdrawAmount / 1000000).toFixed(1)}M
-                {:else if $withdrawAmount >= 1000}
-                  R$ {($withdrawAmount / 1000).toFixed(1)}K
+                              {#if withdrawAmount >= 1000000}
+                  R$ {(withdrawAmount / 1000000).toFixed(1)}M
+                {:else if withdrawAmount >= 1000}
+                  R$ {(withdrawAmount / 1000).toFixed(1)}K
                 {:else}
-                  R$ {$withdrawAmount.toLocaleString()}
+                  R$ {withdrawAmount.toLocaleString()}
                 {/if}
             </p>
           </div>
@@ -210,13 +210,13 @@
         <button
           class="w-full action-button py-4 text-lg font-semibold bg-red-500/10 border-red-500/30 hover:bg-red-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
           on:click={handleWithdraw}
-          disabled={$withdrawAmount <= 0 || $withdrawAmount > $bankBalance}
+          disabled={withdrawAmount <= 0 || withdrawAmount > $bankBalance}
         >
           <i class="fas fa-arrow-down mr-3"></i>
           {$Locales.withdraw_button}
         </button>
-        
-        {#if $withdrawAmount > $bankBalance}
+
+        {#if withdrawAmount > $bankBalance}
           <p class="text-red-400 text-sm mt-3 text-center">
             <i class="fas fa-exclamation-triangle mr-2"></i>
             Insufficient funds

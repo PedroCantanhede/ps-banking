@@ -5,10 +5,44 @@
 * @return returnData - A promise for the data sent back by the NuiCallbacks CB argument
 */
 
+import { isEnvBrowser } from "./misc";
+import { MockLocales, MockMoneyTypes, MockWeeklySummary, MockBills, MockTransactions, MockAccounts } from "./mockData";
+
 export async function fetchNui<T = any>(
   eventName: string,
   data: unknown = {}
 ): Promise<T> {
+  if (isEnvBrowser()) {
+    switch (eventName) {
+      case "ps-banking:client:getLocales":
+        return MockLocales as unknown as T;
+      case "ps-banking:client:getMoneyTypes":
+        return MockMoneyTypes as unknown as T;
+      case "ps-banking:client:getWeeklySummary":
+        return MockWeeklySummary as unknown as T;
+      case "ps-banking:client:getBills":
+        return MockBills as unknown as T;
+      case "ps-banking:client:getHistory":
+        return MockTransactions as unknown as T;
+      case "ps-banking:client:getAccounts":
+        return MockAccounts as unknown as T;
+      case "ps-banking:client:phoneOption":
+        return false as unknown as T;
+      case "ps-banking:client:ATMwithdraw":
+      case "ps-banking:client:ATMdeposit":
+      case "ps-banking:client:payAllBills":
+      case "ps-banking:client:payBill":
+        return true as unknown as T;
+      case "ps-banking:client:transferMoney":
+        return { success: true, message: "Transferred successfully" } as unknown as T;
+      case "ps-banking:client:getColorConfig":
+        return { color: "#3b82f6" } as unknown as T; // Default blue
+      default:
+        console.warn(`No mock data found for event: ${eventName}`);
+        return null as unknown as T;
+    }
+  }
+
   const options = {
     method: "post",
     headers: {

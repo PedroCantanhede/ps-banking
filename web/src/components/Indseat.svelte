@@ -11,8 +11,8 @@
     Currency,
   } from "../store/data";
 
-  let depositAmount = writable(0);
-  $: newBank = (Number($bankBalance) || 0) + (Number($depositAmount) || 0);
+  let depositAmount = 0;
+  $: newBank = (Number($bankBalance) || 0) + (Number(depositAmount) || 0);
 
   async function updateBalances() {
     try {
@@ -35,9 +35,9 @@
   }
 
   async function handleDeposit() {
-    if ($currentCash < $depositAmount) {
+    if ($currentCash < depositAmount) {
       Notify(
-        `${$Locales.deposit_error} ${$depositAmount.toLocaleString(
+        `${$Locales.deposit_error} ${depositAmount.toLocaleString(
           $Currency.lang,
           {
             style: "currency",
@@ -50,12 +50,12 @@
       );
     } else {
       const response = await fetchNui("ps-banking:client:ATMdeposit", {
-        amount: $depositAmount,
+        amount: depositAmount,
       });
-      
+
       if (response) {
         Notify(
-          `${$Locales.deposit_success} ${$depositAmount.toLocaleString(
+          `${$Locales.deposit_success} ${depositAmount.toLocaleString(
             $Currency.lang,
             {
               style: "currency",
@@ -66,10 +66,10 @@
           $Locales.deposit_success,
           "coins"
         );
-        
+
         // Update balances from server to ensure accuracy
         await updateBalances();
-        depositAmount.set(0);
+        depositAmount = 0;
       } else {
         Notify(
           `${$Locales.deposit_error}`,
@@ -135,35 +135,35 @@
             type="number"
             class="w-full bg-white/5 text-white text-xl font-semibold pl-12 pr-4 py-4 rounded-xl border border-white/10 focus:outline-none focus:border-green-500/50 transition-colors"
             placeholder={$Locales.enter_amount}
-            bind:value={$depositAmount}
+            bind:value={depositAmount}
             max={$currentCash}
             min="0"
           />
         </div>
-        
+
         <!-- Quick Amount Buttons -->
         <div class="grid grid-cols-4 gap-3 mt-4">
           <button
             class="px-3 py-2 bg-white/5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm"
-            on:click={() => depositAmount.set(Math.floor($currentCash * 0.25))}
+            on:click={() => depositAmount = Math.floor($currentCash * 0.25)}
           >
             25%
           </button>
           <button
             class="px-3 py-2 bg-white/5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm"
-            on:click={() => depositAmount.set(Math.floor($currentCash * 0.5))}
+            on:click={() => depositAmount = Math.floor($currentCash * 0.5)}
           >
             50%
           </button>
           <button
             class="px-3 py-2 bg-white/5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm"
-            on:click={() => depositAmount.set(Math.floor($currentCash * 0.75))}
+            on:click={() => depositAmount = Math.floor($currentCash * 0.75)}
           >
             75%
           </button>
           <button
             class="px-3 py-2 bg-white/5 rounded-lg text-white/70 hover:bg-white/10 transition-colors text-sm"
-            on:click={() => depositAmount.set($currentCash)}
+            on:click={() => depositAmount = $currentCash}
           >
             {$Locales.all}
           </button>
@@ -193,12 +193,12 @@
           <div class="text-right">
             <p class="text-white/60 text-sm">{$Locales.depositing}</p>
             <p class="text-xl font-bold text-green-400">
-                              {#if $depositAmount >= 1000000}
-                  R$ {($depositAmount / 1000000).toFixed(1)}M
-                {:else if $depositAmount >= 1000}
-                  R$ {($depositAmount / 1000).toFixed(1)}K
+                              {#if depositAmount >= 1000000}
+                  R$ {(depositAmount / 1000000).toFixed(1)}M
+                {:else if depositAmount >= 1000}
+                  R$ {(depositAmount / 1000).toFixed(1)}K
                 {:else}
-                  R$ {$depositAmount.toLocaleString()}
+                  R$ {depositAmount.toLocaleString()}
                 {/if}
             </p>
           </div>
@@ -210,13 +210,13 @@
         <button
           class="w-full action-button py-4 text-lg font-semibold bg-green-500/10 border-green-500/30 hover:bg-green-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
           on:click={handleDeposit}
-          disabled={$depositAmount <= 0 || $depositAmount > $currentCash}
+          disabled={depositAmount <= 0 || depositAmount > $currentCash}
         >
           <i class="fas fa-arrow-up mr-3"></i>
           {$Locales.deposit_button}
         </button>
-        
-        {#if $depositAmount > $currentCash}
+
+        {#if depositAmount > $currentCash}
           <p class="text-red-400 text-sm mt-3 text-center">
             <i class="fas fa-exclamation-triangle mr-2"></i>
             Insufficient cash
