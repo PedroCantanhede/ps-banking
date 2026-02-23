@@ -1,5 +1,25 @@
+<h1 align="center">
+    🔷 NUI BANK FIVEM 🔷
+</h1>
+
+<p align="center">
+  <img alt="dispatch-nui" src="./github/bank.png" width="100%">
+</p>
+
 # ps-banking
-Compatible with QBCore and ESX.
+Redesign of the bank's NUI. Compatible with QBCore and ESX.
+
+# Preview 
+## Redesign
+This is a redesign of the QBCore BANK NUI.
+
+<img src="./github/nui-bank1.gif" width="600">
+<img src="./github/nui-bank2.gif" width="600">
+<img src="./github/nui-bank3.gif" width="600">
+<img src="./github/nui-bank4.gif" width="600">
+<img src="./github/quick-management.png" width="600">
+<img src="./github/notification1.png" width="600">
+<img src="./github/notification2.png" width="600">
 
 # Depedency
 1. [qb-core](https://github.com/qbcore-framework/qb-core) or [ESX](https://github.com/esx-framework)
