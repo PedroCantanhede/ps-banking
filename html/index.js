@@ -740,233 +740,233 @@ const Gl = () => !window.invokeNative,
     search_transactions: "Procurando transações...",
     description: "Descrição",
     type: "Tipo",
-    time_ago: "Time Ago",
+    time_ago: "Há quanto tempo",
     amount: "Quantia",
     date: "Data",
-    pay_invoice: "Pay Invoice",
-    payment_completed: "Payment Completed",
-    from: "From",
-    delete_all_transactions: "Delete All Transactions",
-    are_you_sure: "Are you sure?",
+    pay_invoice: "Pagar Fatura",
+    payment_completed: "Pagamento Concluído",
+    from: "De",
+    delete_all_transactions: "Excluir Todas as Transações",
+    are_you_sure: "Tem certeza?",
     delete_confirmation:
-      "Are you sure you want to delete all your transactions? (Only do this if the menu lags!)",
-    cancel: "Cancel",
-    confirm: "Confirm",
-    history_empty: "Your history is empty",
-    all_history_deleted: "You have deleted all your history",
-    error: "Error",
-    success: "Success",
-    new_cash: "New Cash",
-    withdraw_success: "Withdrawal Successful",
-    withdraw_error: "Your bank account does not have enough funds",
-    withdraw_button: "WITHDRAW",
-    new_bank: "New Bank Balance",
-    current_cash: "Current Cash",
-    deposit_success: "Deposit Successful",
-    deposit_error: "You do not have enough cash",
-    deposit_button: "DEPOSIT",
-    total_balance: "Total Balance",
-    quick_actions: "Quick Actions",
-    transfer_money: "Transfer Money",
-    easy_transfer: "Easily transfer money to people",
-    transfer: "Transfer",
-    pay_bills: "Pay Bills",
-    pay_pending_bills: "Quickly pay your pending bills",
-    pay: "Pay",
-    withdraw_all_money: "Withdraw All Money",
-    withdraw_all_from_account: "Withdraw all your money from your account",
-    deposit_cash: "Deposit Cash",
-    deposit_all_cash: "Deposit all your cash into your account",
-    weekly_summary: "Weekly Summary",
-    income: "Income",
-    expenses: "Expenses",
-    report: "Report",
-    latest_transactions: "Latest Transactions",
-    see_all: "SEE ALL",
-    unpaid_bills: "Unpaid Invoices",
-    no_unpaid_bills: "No unpaid invoices",
-    confirm_pay_all_bills: "Are you sure you want to pay all your bills?",
-    pay_all_bills: "Pay All Bills",
-    pay_all_bills_success: "You have paid all your bills!",
-    pay_all_bills_error: "You have no bills",
-    payment_method: "Payment Method",
-    phone_number: "Phone Number",
+      "Tem certeza que deseja excluir todas as suas transações? (Faça isso apenas se o menu travar!)",
+    cancel: "Cancelar",
+    confirm: "Confirmar",
+    history_empty: "Seu histórico está vazio",
+    all_history_deleted: "Você excluiu todo o seu histórico",
+    error: "Erro",
+    success: "Sucesso",
+    new_cash: "Novo Dinheiro",
+    withdraw_success: "Saque Realizado",
+    withdraw_error: "Sua conta bancária não tem fundos suficientes",
+    withdraw_button: "SACAR",
+    new_bank: "Novo Saldo Bancário",
+    current_cash: "Dinheiro Atual",
+    deposit_success: "Depósito Realizado",
+    deposit_error: "Você não tem dinheiro suficiente",
+    deposit_button: "DEPOSITAR",
+    total_balance: "Saldo Total",
+    quick_actions: "Ações Rápidas",
+    transfer_money: "Transferir Dinheiro",
+    easy_transfer: "Transfira dinheiro facilmente para outras pessoas",
+    transfer: "Transferir",
+    pay_bills: "Pagar Despesas",
+    pay_pending_bills: "Pague suas despesas pendentes rapidamente",
+    pay: "Pagar",
+    withdraw_all_money: "Sacar Tudo",
+    withdraw_all_from_account: "Saque todo o dinheiro da sua conta",
+    deposit_cash: "Depositar Dinheiro",
+    deposit_all_cash: "Deposite todo o seu dinheiro na conta",
+    weekly_summary: "Resumo Semanal",
+    income: "Receitas",
+    expenses: "Despesas",
+    report: "Relatório",
+    latest_transactions: "Últimas Transações",
+    see_all: "VER TUDO",
+    unpaid_bills: "Faturas Pendentes",
+    no_unpaid_bills: "Sem faturas pendentes",
+    confirm_pay_all_bills: "Tem certeza que deseja pagar todas as suas despesas?",
+    pay_all_bills: "Pagar Todas as Despesas",
+    pay_all_bills_success: "Você pagou todas as suas despesas!",
+    pay_all_bills_error: "Você não tem despesas pendentes",
+    payment_method: "Método de Pagamento",
+    phone_number: "Número de Telefone",
     id: "ID",
-    id_or_phone_number: "ID or Phone Number",
-    no_cash_on_you: "You have no cash on you",
-    deposit_all_success: "All your cash has been deposited",
-    no_money_on_account: "Your account is empty",
-    withdraw_all_success: "You have withdrawn all your money from the account",
-    invoices: "Invoices",
-    statistics_reports: "Statistics and Reports",
-    balance_trend: "Balance Trend",
-    balance: "Balance",
-    used: "Used",
-    month: "Month",
-    balance_dkk: "Balance",
-    withdrawn: "You have withdrawn",
-    deposited: "You have deposited",
-    no_transactions: "No recent transactions",
-    transactions_trend: "Transactions Trend",
-    total_transactions: "Total Transactions",
+    id_or_phone_number: "ID ou Número de Telefone",
+    no_cash_on_you: "Você não tem dinheiro em mãos",
+    deposit_all_success: "Todo o seu dinheiro foi depositado",
+    no_money_on_account: "Sua conta está vazia",
+    withdraw_all_success: "Você sacou todo o dinheiro da conta",
+    invoices: "Faturas",
+    statistics_reports: "Estatísticas e Relatórios",
+    balance_trend: "Tendência de Saldo",
+    balance: "Saldo",
+    used: "Usado",
+    month: "Mês",
+    balance_dkk: "Saldo",
+    withdrawn: "Você sacou",
+    deposited: "Você depositou",
+    no_transactions: "Sem transações recentes",
+    transactions_trend: "Tendência de Transações",
+    total_transactions: "Total de Transações",
     accounts: "Contas",
-    account_number_copied: "Account number copied to clipboard",
-    new_user_to_account: "New user to account",
-    server_id: "Server ID",
-    add_user: "Add User",
-    new_account_name: "New Account Name",
-    new_name: "New Name",
-    rename: "Rename",
-    create_new_account: "Create New Account",
-    account_holder: "Account Holder",
-    initial_balance: "Initial Balance",
-    create: "Create",
-    delete_account: "Delete Account",
+    account_number_copied: "Número da conta copiado",
+    new_user_to_account: "Novo usuário na conta",
+    server_id: "ID do Servidor",
+    add_user: "Adicionar Usuário",
+    new_account_name: "Novo Nome da Conta",
+    new_name: "Novo Nome",
+    rename: "Renomear",
+    create_new_account: "Criar Nova Conta",
+    account_holder: "Titular da Conta",
+    initial_balance: "Saldo Inicial",
+    create: "Criar",
+    delete_account: "Excluir Conta",
     are_you_sure_you_want_to_delete_this_account:
-      "Are you sure you want to delete this account?",
-    delete: "Delete",
-    remove_user_from_account: "Remove User from Account",
-    select_user: "Select User",
-    remove: "Remove",
-    withdraw_from_account: "Withdraw from Account",
-    deposit_to_account: "Deposit to Account",
-    removed_successfully: "Removed Successfully",
-    select_account_and_user: "Please select an account and a user",
-    account_deleted_successfully: "Account deleted successfully",
-    new_account_created_successfully: "New account created successfully",
-    withdrew: "Withdrew",
-    successfully: "Successfully",
-    select_valid_account_and_amount: "Please select a valid account and amount",
-    openBank: "Access Bank",
-    openATM: "Access ATM",
-    account_deletion_failed: "Account deletion failed",
-    withdrawal_failed: "Withdrawal failed",
-    deposit_failed: "Deposit failed",
-    user_added_successfully: "User added successfully",
-    user_addition_failed: "Failed to add user",
-    new_account_creation_failed: "Failed to create new account",
-    account_renamed_successfully: "Account renamed successfully",
-    account_rename_failed: "Account rename failed",
-    rename_account: "Change name",
-    no_framework_found: "No framework found",
-    cannot_send_self_money: "You cannot send money to yourself",
-    money_sent: "You have sent %s to %s",
-    received_money: "You have received %s from %s",
-    no_money: "You do not have enough money",
-    user_not_in_city: "User is not in the city",
-    transaction_description: "Transaction",
-    cannot_add_self: "You cannot add yourself",
-    player_not_found: "Player not found",
-    target_player_not_found: "Target player not found",
-    user_already_in_account: "User is already in the account",
-    account_not_found: "Account not found",
-    invalid_amount: "Invalid amount specified",
-    quick_management: "Quick Management",
-    enter_amount: "Enter amount",
-    enter_account_name: "Enter account name",
-    enter_player_server_id: "Enter player server ID (ex: 1, 2, 3...)",
-    delete_all: "Delete All",
-    view_complete_transaction_history: "View your complete transaction history",
-    transactions_count: "Transactions",
-    no_transactions_found: "No Transactions Found",
-    no_transactions_match_search: "No transactions match your search criteria.",
-    transaction_history_empty: "Your transaction history is empty.",
-    received: "Received",
-    sent: "Sent",
-    withdraw_money_from_account: "Withdraw money from your bank account",
-    withdraw_status: "Withdraw",
-    you_will_receive: "You will receive",
-    deposit_cash_into_account: "Deposit money into your bank account",
-    deposit_status: "Deposit",
-    cash_on_hand: "Cash on Hand",
-    new_bank_balance: "New Bank Balance",
-    depositing: "Depositing",
-    please_enter_account_name: "Please enter an account name",
-    failed_get_user_info: "Failed to get user information",
-    account_created_success: "Account created successfully!",
-    failed_create_account: "Failed to create account",
-    account_deleted_success: "Account deleted successfully!",
-    failed_delete_account: "Failed to delete account",
-    banco: "Bank",
-    failed_fetch_accounts: "Failed to fetch accounts",
-    please_enter_valid_amount: "Please enter a valid amount",
-    deposited_successfully: "Deposited successfully!",
-    insufficient_funds_deposit: "Insufficient funds or deposit failed",
-    failed_deposit_account: "Failed to deposit to account",
-    withdrew_successfully: "Withdrew successfully!",
-    insufficient_funds_account: "Insufficient funds in account",
-    failed_withdraw_account: "Failed to withdraw from account",
-    please_enter_valid_user_id: "Please enter a valid user ID",
+      "Tem certeza que deseja excluir esta conta?",
+    delete: "Excluir",
+    remove_user_from_account: "Remover Usuário da Conta",
+    select_user: "Selecionar Usuário",
+    remove: "Remover",
+    withdraw_from_account: "Sacar da Conta",
+    deposit_to_account: "Depositar na Conta",
+    removed_successfully: "Removido com Sucesso",
+    select_account_and_user: "Por favor, selecione uma conta e um usuário",
+    account_deleted_successfully: "Conta excluída com sucesso",
+    new_account_created_successfully: "Nova conta criada com sucesso",
+    withdrew: "Sacou",
+    successfully: "Com sucesso",
+    select_valid_account_and_amount: "Por favor, selecione uma conta válida e uma quantia",
+    openBank: "Acessar Banco",
+    openATM: "Acessar ATM",
+    account_deletion_failed: "Falha ao excluir conta",
+    withdrawal_failed: "Falha no saque",
+    deposit_failed: "Falha no depósito",
+    user_added_successfully: "Usuário adicionado com sucesso",
+    user_addition_failed: "Falha ao adicionar usuário",
+    new_account_creation_failed: "Falha ao criar nova conta",
+    account_renamed_successfully: "Conta renomeada com sucesso",
+    account_rename_failed: "Falha ao renomear conta",
+    rename_account: "Alterar nome",
+    no_framework_found: "Framework não encontrado",
+    cannot_send_self_money: "Você não pode enviar dinheiro para si mesmo",
+    money_sent: "Você enviou %s para %s",
+    received_money: "Você recebeu %s de %s",
+    no_money: "Você não tem dinheiro suficiente",
+    user_not_in_city: "Usuário não está na cidade",
+    transaction_description: "Transação",
+    cannot_add_self: "Você não pode se adicionar",
+    player_not_found: "Jogador não encontrado",
+    target_player_not_found: "Jogador alvo não encontrado",
+    user_already_in_account: "Usuário já está na conta",
+    account_not_found: "Conta não encontrada",
+    invalid_amount: "Quantia inválida",
+    quick_management: "Gerenciamento Rápido",
+    enter_amount: "Digite a quantia",
+    enter_account_name: "Digite o nome da conta",
+    enter_player_server_id: "Digite o ID do servidor do jogador (ex: 1, 2, 3...)",
+    delete_all: "Excluir Tudo",
+    view_complete_transaction_history: "Veja seu histórico completo de transações",
+    transactions_count: "Transações",
+    no_transactions_found: "Nenhuma Transação Encontrada",
+    no_transactions_match_search: "Nenhuma transação corresponde à sua busca.",
+    transaction_history_empty: "Seu histórico de transações está vazio.",
+    received: "Recebido",
+    sent: "Enviado",
+    withdraw_money_from_account: "Saque dinheiro da sua conta bancária",
+    withdraw_status: "Saque",
+    you_will_receive: "Você receberá",
+    deposit_cash_into_account: "Deposite dinheiro na sua conta bancária",
+    deposit_status: "Depósito",
+    cash_on_hand: "Dinheiro em Mãos",
+    new_bank_balance: "Novo Saldo Bancário",
+    depositing: "Depositando",
+    please_enter_account_name: "Por favor, insira um nome para a conta",
+    failed_get_user_info: "Falha ao obter informações do usuário",
+    account_created_success: "Conta criada com sucesso!",
+    failed_create_account: "Falha ao criar conta",
+    account_deleted_success: "Conta excluída com sucesso!",
+    failed_delete_account: "Falha ao excluir conta",
+    banco: "Banco",
+    failed_fetch_accounts: "Falha ao carregar contas",
+    please_enter_valid_amount: "Por favor, insira uma quantia válida",
+    deposited_successfully: "Depositado com sucesso!",
+    insufficient_funds_deposit: "Saldo insuficiente ou falha no depósito",
+    failed_deposit_account: "Falha ao depositar na conta",
+    withdrew_successfully: "Saque realizado com sucesso!",
+    insufficient_funds_account: "Saldo insuficiente na conta",
+    failed_withdraw_account: "Falha ao sacar da conta",
+    please_enter_valid_user_id: "Por favor, insira um ID de usuário válido",
     please_enter_valid_numeric_player_id:
-      "Please enter a valid numeric player ID",
-    added_to_account_successfully: "added to account successfully!",
-    removed_from_account_successfully: "removed from account successfully!",
+      "Por favor, insira um ID numérico válido",
+    added_to_account_successfully: "adicionado à conta com sucesso!",
+    removed_from_account_successfully: "removido da conta com sucesso!",
     enter_server_id_instruction:
-      "Enter the server ID of the player you want to add (player must be online)",
-    all: "All",
-    all_time_summary: "All Time Summary",
-    unknown_account: "Unknown Account",
-    unknown: "Unknown",
-    monthly_summary: "Monthly Summary",
-    net_change: "Net Change",
-    total_income: "Total Income",
-    total_expenses: "Total Expenses",
-    net_lifetime: "Net Lifetime",
+      "Digite o ID do servidor do jogador que deseja adicionar (o jogador deve estar online)",
+    all: "Todos",
+    all_time_summary: "Resumo Geral",
+    unknown_account: "Conta Desconhecida",
+    unknown: "Desconhecido",
+    monthly_summary: "Resumo Mensal",
+    net_change: "Variação Líquida",
+    total_income: "Total de Receitas",
+    total_expenses: "Total de Despesas",
+    net_lifetime: "Saldo Acumulado",
     financial_statistics_analytics: "Suas estatísticas e análises financeiras",
-    analytics: "Analytics",
+    analytics: "Análises",
     financial_summary_quick_actions: "Seu resumo financeiro e ações rápidas",
-    live: "Live",
-    manage_pending_bills_payments: "Manage your pending bills and payments",
-    no_bills_found: "No Bills Found",
-    no_bills_match_search: "No bills match your search criteria.",
-    no_pending_bills_moment: "You have no pending bills at the moment.",
-    bills_count: "Bills",
-    paid: "Paid",
-    manage_bank_accounts_savings: "Manage your bank accounts and savings",
-    primary_account: "Primary Account",
-    main_checking_account: "Main Checking Account",
-    current_balance: "Current Balance",
-    create_account: "Create Account",
-    active: "Active",
-    inactive: "Inactive",
-    savings_account: "Savings Account",
-    created: "Created",
-    owner_you: "Owner: You",
-    shared_account: "Shared Account",
-    no_additional_accounts: "No Additional Accounts",
+    live: "Ao Vivo",
+    manage_pending_bills_payments: "Gerencie suas despesas e pagamentos pendentes",
+    no_bills_found: "Nenhuma Despesa Encontrada",
+    no_bills_match_search: "Nenhuma despesa corresponde à sua busca.",
+    no_pending_bills_moment: "Você não tem despesas pendentes no momento.",
+    bills_count: "Despesas",
+    paid: "Pago",
+    manage_bank_accounts_savings: "Gerencie suas contas bancárias e poupanças",
+    primary_account: "Conta Principal",
+    main_checking_account: "Conta Corrente Principal",
+    current_balance: "Saldo Atual",
+    create_account: "Criar Conta",
+    active: "Ativo",
+    inactive: "Inativo",
+    savings_account: "Conta Poupança",
+    created: "Criado",
+    owner_you: "Titular: Você",
+    shared_account: "Conta Compartilhada",
+    no_additional_accounts: "Sem Contas Adicionais",
     create_savings_business_account:
-      "Create a savings or business account to get started",
-    create_your_first_account: "Create Your First Account",
-    account_name: "Account Name",
-    account_type: "Account Type",
-    business_account: "Business Account",
-    investment_account: "Investment Account",
-    deposit_money: "Deposit Money",
-    amount_to_deposit: "Amount to Deposit",
-    available: "Available",
-    add_user_to_account: "Add User to Account",
-    player_id: "Player ID",
-    withdraw_money: "Withdraw Money",
-    shared_with: "Shared with",
-    remove_user: "Remove User",
-    failed_remove_user: "Failed to remove user from account",
-    failed_add_user: "Failed to add user to account",
+      "Crie uma conta poupança ou empresarial para começar",
+    create_your_first_account: "Crie Sua Primeira Conta",
+    account_name: "Nome da Conta",
+    account_type: "Tipo de Conta",
+    business_account: "Conta Empresarial",
+    investment_account: "Conta de Investimento",
+    deposit_money: "Depositar Dinheiro",
+    amount_to_deposit: "Quantia a Depositar",
+    available: "Disponível",
+    add_user_to_account: "Adicionar Usuário à Conta",
+    player_id: "ID do Jogador",
+    withdraw_money: "Sacar Dinheiro",
+    shared_with: "Compartilhado com",
+    remove_user: "Remover Usuário",
+    failed_remove_user: "Falha ao remover usuário da conta",
+    failed_add_user: "Falha ao adicionar usuário na conta",
     failed_add_user_invalid_response:
-      "Failed to add user to account - Invalid response",
-    adding: "Adding...",
-    amount_to_withdraw: "Amount to Withdraw",
-    account: "Account",
-    select_user_to_remove: "Select User to Remove",
-    no_users_to_remove: "No users to remove from this account",
-    failed_load_accounts: "Failed to load accounts",
+      "Falha ao adicionar usuário - Resposta inválida",
+    adding: "Adicionando...",
+    amount_to_withdraw: "Quantia a Sacar",
+    account: "Conta",
+    select_user_to_remove: "Selecionar Usuário para Remover",
+    no_users_to_remove: "Sem usuários para remover desta conta",
+    failed_load_accounts: "Falha ao carregar contas",
     player_not_found_offline:
-      "Player not found or is offline. Only online players can be added to accounts.",
-    cannot_add_yourself: "You cannot add yourself to the account.",
-    view_details: "View Details",
-    player_already_added: "This player has already been added to the account.",
+      "Jogador não encontrado ou está offline. Apenas jogadores online podem ser adicionados às contas.",
+    cannot_add_yourself: "Você não pode se adicionar à conta.",
+    view_details: "Ver Detalhes",
+    player_already_added: "Este jogador já foi adicionado à conta.",
     request_timed_out:
-      "Request timed out. The player may be offline or unreachable.",
-    account_suffix: "Account",
+      "Tempo esgotado. O jogador pode estar offline ou inacessível.",
+    account_suffix: "Conta",
   },
   Dd = [
     { name: "bank", amount: 154e4 },
@@ -14232,24 +14232,24 @@ function pc(i) {
         f(l, "class", "text-2xl text-blue-200 font-bold"),
         f(n, "class", "flex items-center mb-4"),
         f(d, "class", "text-gray-300 mb-6"),
-        f(w, "class", "fa-duotone fa-times-circle mr-2"),
+        f(w, "class", "fas fa-times text-red-400 mr-2"),
         f(
           b,
           "class",
-          "flex items-center bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none",
+          "flex items-center justify-center px-4 py-2 rounded-xl bg-red-500/10 border border-red-500/30 hover:bg-red-500/20 transition-colors text-red-400 font-medium",
         ),
-        f(P, "class", "fa-duotone fa-check-circle mr-2"),
+        f(P, "class", "fas fa-check text-blue-400 mr-2"),
         f(
           C,
           "class",
-          "flex items-center bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none",
+          "flex items-center justify-center px-4 py-2 rounded-xl bg-blue-500/20 border border-blue-500/30 hover:bg-blue-500/30 transition-colors text-blue-400 font-medium",
         ),
-        f(g, "class", "flex justify-between items-center"),
-        f(e, "class", "bg-gray-700 p-8 rounded-lg shadow-lg w-96"),
+        f(g, "class", "flex justify-between items-center mt-6"),
+        f(e, "class", "modern-card p-8 w-full max-w-md mx-4"),
         f(
           t,
           "class",
-          "fixed inset-0 flex items-center justify-center bg-black bg-opacity-50",
+          "modal-backdrop fixed inset-0 flex items-center justify-center z-50",
         ));
     },
     m(O, V) {
@@ -15052,10 +15052,10 @@ function Ym(i, t, e) {
         (k = new nl(C, {
           type: "bar",
           data: {
-            labels: [n.income, n.expenses],
+            labels: [(n && n.income) || "Income", (n && n.expenses) || "Expenses"],
             datasets: [
               {
-                label: n.weekly_summary,
+                label: (n && n.weekly_summary) || "Weekly Summary",
                 data: [0, 0],
                 backgroundColor: ["#3b82f6", "#fb923c"],
               },
@@ -15105,10 +15105,10 @@ function Ym(i, t, e) {
     });
   }
   const ct = () => {
-      (As.set(!1), Lo.set(!0));
+      (As.set(!1), Ao.set(!1), pl.set(!1), ml.set(!1), $a.set(!1), _l.set(!1), Lo.set(!0), gl.set("history"));
     },
     G = () => {
-      (As.set(!1), Ao.set(!0));
+      (As.set(!1), Lo.set(!1), pl.set(!1), ml.set(!1), $a.set(!1), _l.set(!1), Ao.set(!0), gl.set("bills"));
     };
   function X() {
     ((p.contactType = this.__value), y.set(p));
@@ -15137,6 +15137,12 @@ function Ym(i, t, e) {
     (i.$$.update = () => {
       (i.$$.dirty[0] & 16777219 &&
         e(4, (O = { balance: o, cash: s, transactions: l })),
+        i.$$.dirty[0] & 32 &&
+          k &&
+          n &&
+          ((k.data.labels = [n.income, n.expenses]),
+          (k.data.datasets[0].label = n.weekly_summary),
+          k.update()),
         i.$$.dirty[0] & 8388608 &&
           S.subscribe((B) => {
             k &&
@@ -23404,9 +23410,8 @@ function Hc(i, t) {
             (t[1].title.toLowerCase().includes("error") ||
             t[1].title.toLowerCase().includes("erro")
               ? "text-red-400"
-              : t[1].title.toLowerCase().includes("success") ||
-                  t[1].title.toLowerCase().includes("sucesso")
-                ? "text-green-400"
+              : t[1].title.toLowerCase().includes("saque")
+                ? "text-orange-400"
                 : "text-blue-400") +
             " text-lg"),
         ),
@@ -23418,9 +23423,8 @@ function Hc(i, t) {
             (t[1].title.toLowerCase().includes("error") ||
             t[1].title.toLowerCase().includes("erro")
               ? "bg-red-500/20"
-              : t[1].title.toLowerCase().includes("success") ||
-                  t[1].title.toLowerCase().includes("sucesso")
-                ? "bg-green-500/20"
+              : t[1].title.toLowerCase().includes("saque")
+                ? "bg-orange-500/20"
                 : "bg-blue-500/20") +
             " rounded-xl flex items-center justify-center"),
         ),
@@ -23435,9 +23439,8 @@ function Hc(i, t) {
             (t[1].title.toLowerCase().includes("error") ||
             t[1].title.toLowerCase().includes("erro")
               ? "bg-red-400"
-              : t[1].title.toLowerCase().includes("success") ||
-                  t[1].title.toLowerCase().includes("sucesso")
-                ? "bg-green-400"
+              : t[1].title.toLowerCase().includes("saque")
+                ? "bg-orange-400"
                 : "bg-blue-400") +
             " rounded-full animate-pulse-soft"),
         ),
@@ -23450,10 +23453,9 @@ function Hc(i, t) {
             (t[1].title.toLowerCase().includes("error") ||
             t[1].title.toLowerCase().includes("erro")
               ? "border-red-500/30 bg-red-500/5"
-              : t[1].title.toLowerCase().includes("success") ||
-                  t[1].title.toLowerCase().includes("sucesso")
-                ? "border-green-500/30 bg-green-500/5"
-                : "")),
+              : t[1].title.toLowerCase().includes("saque")
+                ? "border-orange-500/30 bg-orange-500/10"
+                : "border-blue-500/30 bg-blue-500/10")),
         ),
         (this.first = e));
     },
@@ -23486,9 +23488,8 @@ function Hc(i, t) {
                 (t[1].title.toLowerCase().includes("error") ||
                 t[1].title.toLowerCase().includes("erro")
                   ? "text-red-400"
-                  : t[1].title.toLowerCase().includes("success") ||
-                      t[1].title.toLowerCase().includes("sucesso")
-                    ? "text-green-400"
+                  : t[1].title.toLowerCase().includes("saque")
+                    ? "text-orange-400"
                     : "text-blue-400") +
                 " text-lg"))) &&
           f(s, "class", o),
@@ -23500,9 +23501,8 @@ function Hc(i, t) {
                 (t[1].title.toLowerCase().includes("error") ||
                 t[1].title.toLowerCase().includes("erro")
                   ? "bg-red-500/20"
-                  : t[1].title.toLowerCase().includes("success") ||
-                      t[1].title.toLowerCase().includes("sucesso")
-                    ? "bg-green-500/20"
+                  : t[1].title.toLowerCase().includes("saque")
+                    ? "bg-orange-500/20"
                     : "bg-blue-500/20") +
                 " rounded-xl flex items-center justify-center"))) &&
           f(n, "class", l),
@@ -23516,9 +23516,8 @@ function Hc(i, t) {
                 (t[1].title.toLowerCase().includes("error") ||
                 t[1].title.toLowerCase().includes("erro")
                   ? "bg-red-400"
-                  : t[1].title.toLowerCase().includes("success") ||
-                      t[1].title.toLowerCase().includes("sucesso")
-                    ? "bg-green-400"
+                  : t[1].title.toLowerCase().includes("saque")
+                    ? "bg-orange-400"
                     : "bg-blue-400") +
                 " rounded-full animate-pulse-soft"))) &&
           f(S, "class", k),
@@ -23530,10 +23529,9 @@ function Hc(i, t) {
                 (t[1].title.toLowerCase().includes("error") ||
                 t[1].title.toLowerCase().includes("erro")
                   ? "border-red-500/30 bg-red-500/5"
-                  : t[1].title.toLowerCase().includes("success") ||
-                      t[1].title.toLowerCase().includes("sucesso")
-                    ? "border-green-500/30 bg-green-500/5"
-                    : "")))) &&
+                  : t[1].title.toLowerCase().includes("saque")
+                    ? "border-orange-500/30 bg-orange-500/10"
+                    : "border-blue-500/30 bg-blue-500/10")))) &&
           f(e, "class", P));
     },
     i(D) {
