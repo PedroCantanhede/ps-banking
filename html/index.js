@@ -714,11 +714,9 @@ const Gl = () => !window.invokeNative,
     return `${k}, ${C}, ${P}`;
   },
   Cd = (i) => {
-    const t = nu(i),
-      e = Pd(t),
-      n = document.documentElement;
-    (n.style.setProperty("--primary-color", t),
-      n.style.setProperty("--secondary-color", e));
+    const n = document.documentElement;
+    (n.style.setProperty("--primary-color", "96, 165, 250"),
+      n.style.setProperty("--secondary-color", "59, 130, 246"));
   },
   Td = {
     atm: "ATM",
@@ -1425,7 +1423,7 @@ function ja(i) {
           "class",
           "p-4 border-b border-white/10 flex items-center justify-between",
         ),
-        f(R, "class", "fas fa-wallet text-green-400 text-lg"),
+        f(R, "class", "fas fa-wallet text-blue-400 text-lg"),
         f(D, "class", "text-white/80"),
         f(T, "class", "flex items-center space-x-2 mb-1"),
         f(O, "class", "text-xl font-bold text-white"),
@@ -1438,14 +1436,14 @@ function ja(i) {
         f(C, "class", "grid grid-cols-2 gap-4"),
         f(st, "class", "grid grid-cols-3 gap-2"),
         f(Y, "class", "grid grid-cols-3 gap-2"),
-        f(ut, "class", "fas fa-arrow-down text-red-400"),
+        f(ut, "class", "fas fa-arrow-down text-orange-400"),
         f(It, "class", "text-white/80"),
         f(ot, "class", "flex items-center space-x-2 mb-2"),
         f(vt, "type", "number"),
         f(
           vt,
           "class",
-          "w-full bg-black/30 text-white px-3 py-2 rounded-lg border border-white/10 focus:outline-none focus:border-white/20 focus:ring-1 focus:ring-red-500/20",
+          "w-full bg-black/30 text-white px-3 py-2 rounded-lg border border-white/10 focus:outline-none focus:border-white/20 focus:ring-1 focus:ring-orange-500/20",
         ),
         f(vt, "placeholder", (xt = i[4].enter_amount)),
         f(vt, "min", "0"),
@@ -1453,24 +1451,24 @@ function ja(i) {
         f(
           ue,
           "class",
-          "absolute inset-0 bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity",
+          "absolute inset-0 bg-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity",
         ),
         f(
           Zt,
           "class",
-          "px-6 py-2 bg-red-500/20 hover:bg-red-500/30 transition-colors rounded-lg text-white relative overflow-hidden group flex items-center justify-center text-center min-w-[100px]",
+          "px-6 py-2 bg-orange-500/20 hover:bg-orange-500/30 transition-colors rounded-lg text-white relative overflow-hidden group flex items-center justify-center text-center min-w-[100px]",
         ),
         (Zt.disabled = Vt = i[7] <= 0 || i[7] > i[2]),
         f(Tt, "class", "flex space-x-2"),
         f(wt, "class", "bg-black/20 border border-white/10 rounded-lg p-4"),
-        f(Ht, "class", "fas fa-arrow-up text-green-400"),
+        f(Ht, "class", "fas fa-arrow-up text-blue-400"),
         f(Gt, "class", "text-white/80"),
         f(jt, "class", "flex items-center space-x-2 mb-2"),
         f(kt, "type", "number"),
         f(
           kt,
           "class",
-          "w-full bg-black/30 text-white px-3 py-2 rounded-lg border border-white/10 focus:outline-none focus:border-white/20 focus:ring-1 focus:ring-green-500/20",
+          "w-full bg-black/30 text-white px-3 py-2 rounded-lg border border-white/10 focus:outline-none focus:border-white/20 focus:ring-1 focus:ring-blue-500/20",
         ),
         f(kt, "placeholder", (Lt = i[4].enter_amount)),
         f(kt, "min", "0"),
@@ -1478,12 +1476,12 @@ function ja(i) {
         f(
           _e,
           "class",
-          "absolute inset-0 bg-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity",
+          "absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity",
         ),
         f(
           Ft,
           "class",
-          "px-6 py-2 bg-green-500/20 hover:bg-green-500/30 transition-colors rounded-lg text-white relative overflow-hidden group flex items-center justify-center text-center min-w-[100px]",
+          "px-6 py-2 bg-blue-500/20 hover:bg-blue-500/30 transition-colors rounded-lg text-white relative overflow-hidden group flex items-center justify-center text-center min-w-[100px]",
         ),
         (Ft.disabled = te = i[1] <= 0 || i[1] > i[0]),
         f(bt, "class", "flex space-x-2"),
@@ -1695,9 +1693,9 @@ function Wa(i) {
         f(
           e,
           "class",
-          "absolute inset-0 bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity",
+          "absolute inset-0 bg-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity",
         ),
-        f(s, "class", "fas fa-arrow-down text-red-400 mr-2"),
+        f(s, "class", "fas fa-arrow-down text-orange-400 mr-2"),
         f(l, "class", "text-white/80"),
         f(
           t,
@@ -1755,9 +1753,9 @@ function Ha(i) {
         f(
           e,
           "class",
-          "absolute inset-0 bg-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity",
+          "absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity",
         ),
-        f(s, "class", "fas fa-arrow-up text-green-400 mr-2"),
+        f(s, "class", "fas fa-arrow-up text-blue-400 mr-2"),
         f(l, "class", "text-white/80"),
         f(
           t,
@@ -13494,7 +13492,7 @@ function zm(i) {
         (n = x()),
         (s = h("p")),
         (l = v(o)),
-        f(e, "class", "fas fa-check-circle text-green-400 text-3xl mb-3"),
+        f(e, "class", "fas fa-check-circle text-blue-400 text-3xl mb-3"),
         f(s, "class", "text-white/60"),
         f(t, "class", "text-center py-8"));
     },
@@ -14616,7 +14614,7 @@ function Hm(i) {
         (bi = nn()),
         f(s, "class", "text-3xl font-bold text-white mb-2"),
         f(r, "class", "text-white/60"),
-        f(b, "src", "../web/src/assets/images/zona-norte-logo.png"),
+        f(b, "src", "./images/zona-norte-logo.png"),
         f(b, "class", "object-contain"),
         f(b, "style", "height: 6.5rem"),
         f(b, "alt", "Zona Norte"),
@@ -18926,7 +18924,7 @@ function mg(i) {
         ($ = h("div")),
         (nt = h("div")),
         (K = h("div")),
-        (K.innerHTML = '<i class="fas fa-wallet text-green-400 text-lg"></i>'),
+        (K.innerHTML = '<i class="fas fa-wallet text-blue-400 text-lg"></i>'),
         (Z = x()),
         (et = h("div")),
         (lt = h("p")),
@@ -18940,7 +18938,7 @@ function mg(i) {
         (H = h("div")),
         (st = h("div")),
         (dt = h("div")),
-        (dt.innerHTML = '<i class="fas fa-calendar-week text-green-400"></i>'),
+        (dt.innerHTML = '<i class="fas fa-calendar-week text-blue-400"></i>'),
         (Y = x()),
         (z = h("h3")),
         (wt = v(B)),
@@ -19898,7 +19896,7 @@ function Cc(i) {
         f(
           t,
           "class",
-          "px-2 py-1 bg-green-500/20 text-green-300 text-xs rounded-lg",
+          "px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded-lg",
         ));
     },
     m(l, a) {
@@ -20660,7 +20658,7 @@ function Oc(i) {
         f(
           Q,
           "class",
-          "flex-1 action-button bg-green-500/10 border-green-500/30 hover:bg-green-500/20",
+          "flex-1 action-button bg-blue-500/20 border-blue-500/30 hover:bg-blue-500/30",
         ),
         (Q.disabled = G = i[13] <= 0 || i[13] > i[18]),
         f(K, "class", "flex space-x-4 mt-8"),
@@ -20882,7 +20880,7 @@ function Fc(i) {
         f(
           et,
           "class",
-          "flex-1 action-button bg-green-500/10 border-green-500/30 hover:bg-green-500/20",
+          "flex-1 action-button bg-blue-500/20 border-blue-500/30 hover:bg-blue-500/30",
         ),
         (et.disabled = lt = !String(i[10] || "").trim() || i[5]),
         f(U, "class", "flex space-x-4 mt-8"),
