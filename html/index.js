@@ -912,9 +912,9 @@ const Gl = () => !window.invokeNative,
     total_income: "Total Income",
     total_expenses: "Total Expenses",
     net_lifetime: "Net Lifetime",
-    financial_statistics_analytics: "Your financial statistics and analytics",
+    financial_statistics_analytics: "Suas estatísticas e análises financeiras",
     analytics: "Analytics",
-    financial_summary_quick_actions: "Your financial summary and quick actions",
+    financial_summary_quick_actions: "Seu resumo financeiro e ações rápidas",
     live: "Live",
     manage_pending_bills_payments: "Manage your pending bills and payments",
     no_bills_found: "No Bills Found",
@@ -13433,7 +13433,7 @@ function rc(i) {
         f(
           m,
           "class",
-          (S = `font-semibold ${i[48].isIncome ? "text-green-400" : "text-red-400"}`),
+          (S = `font-semibold ${i[48].isIncome ? "text-blue-400" : "text-orange-400"}`),
         ),
         f(p, "class", "text-right"),
         f(
@@ -13472,7 +13472,7 @@ function rc(i) {
           L(y, w),
         C[0] & 16 &&
           S !==
-            (S = `font-semibold ${k[48].isIncome ? "text-green-400" : "text-red-400"}`) &&
+            (S = `font-semibold ${k[48].isIncome ? "text-blue-400" : "text-orange-400"}`) &&
           f(m, "class", S));
     },
     d(k) {
@@ -13620,7 +13620,7 @@ function cc(i) {
         f(
           _,
           "class",
-          (k = `font-semibold text-sm ${i[48].isIncome ? "text-green-400" : "text-red-400"}`),
+          (k = `font-semibold text-sm ${i[48].isIncome ? "text-blue-400" : "text-orange-400"}`),
         ),
         f(e, "class", "flex justify-between items-start mb-2"),
         f(T, "class", "text-white/50 text-xs"),
@@ -13670,7 +13670,7 @@ function cc(i) {
           L(S, y),
         V[0] & 256 &&
           k !==
-            (k = `font-semibold text-sm ${O[48].isIncome ? "text-green-400" : "text-red-400"}`) &&
+            (k = `font-semibold text-sm ${O[48].isIncome ? "text-blue-400" : "text-orange-400"}`) &&
           f(_, "class", k),
         V[0] & 256 && R !== (R = O[48].timeAgo + "") && L(F, R),
         V[0] & 256 && W !== (W = O[48].date + "") && L(N, W));
@@ -13871,17 +13871,17 @@ function dc(i) {
           ),
           f(lt, "class", "relative"),
           f(U, "class", "mb-6"),
-          f(tt, "class", "fa-duotone fa-times-circle mr-2"),
+          f(tt, "class", "fas fa-times text-red-400 mr-2"),
           f(
             X,
             "class",
-            "flex items-center bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none",
+            "flex items-center justify-center px-4 py-2 rounded-xl bg-red-500/10 border border-red-500/30 hover:bg-red-500/20 transition-colors text-red-400 font-medium",
           ),
-          f(z, "class", "fa-duotone fa-check-circle mr-2"),
+          f(z, "class", "fas fa-check text-blue-400 mr-2"),
           f(
             Y,
             "class",
-            "flex items-center bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none",
+            "flex items-center justify-center px-4 py-2 rounded-xl bg-blue-500/20 border border-blue-500/30 hover:bg-blue-500/30 transition-colors text-blue-400 font-medium",
           ),
           f(G, "class", "flex justify-between items-center mt-6"),
           f(e, "class", "modern-card p-8 w-full max-w-md mx-4"),
@@ -14503,7 +14503,7 @@ function Hm(i) {
         ($ = h("div")),
         (nt = h("div")),
         (nt.innerHTML =
-          '<div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center group-hover:bg-orange-500/30 transition-colors"><i class="fas fa-file-invoice-dollar text-orange-400 text-xl"></i></div> <i class="fas fa-arrow-right text-white/30 group-hover:text-white/60 transition-colors"></i>'),
+          '<div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:bg-blue-500/30 transition-colors"><i class="fas fa-file-invoice-dollar text-blue-400 text-xl"></i></div> <i class="fas fa-arrow-right text-white/30 group-hover:text-white/60 transition-colors"></i>'),
         (K = x()),
         (Z = h("h3")),
         (lt = v(et)),
@@ -14514,7 +14514,7 @@ function Hm(i) {
         (X = h("div")),
         (tt = h("div")),
         (tt.innerHTML =
-          '<div class="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center group-hover:bg-red-500/30 transition-colors"><i class="fas fa-arrow-down text-red-400 text-xl"></i></div> <i class="fas fa-arrow-right text-white/30 group-hover:text-white/60 transition-colors"></i>'),
+          '<div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:bg-blue-500/30 transition-colors"><i class="fas fa-arrow-down text-blue-400 text-xl"></i></div> <i class="fas fa-arrow-right text-white/30 group-hover:text-white/60 transition-colors"></i>'),
         (H = x()),
         (st = h("h3")),
         (Y = v(dt)),
@@ -14525,7 +14525,7 @@ function Hm(i) {
         (gt = h("div")),
         (It = h("div")),
         (It.innerHTML =
-          '<div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center group-hover:bg-green-500/30 transition-colors"><i class="fas fa-arrow-up text-green-400 text-xl"></i></div> <i class="fas fa-arrow-right text-white/30 group-hover:text-white/60 transition-colors"></i>'),
+          '<div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:bg-blue-500/30 transition-colors"><i class="fas fa-arrow-up text-blue-400 text-xl"></i></div> <i class="fas fa-arrow-right text-white/30 group-hover:text-white/60 transition-colors"></i>'),
         (Ut = x()),
         (Nt = h("h3")),
         (Tt = v(Ct)),
@@ -14538,7 +14538,7 @@ function Hm(i) {
         (de = h("div")),
         (Vt = h("div")),
         (se = h("div")),
-        (se.innerHTML = '<i class="fas fa-calendar-week text-green-400"></i>'),
+        (se.innerHTML = '<i class="fas fa-calendar-week text-blue-400"></i>'),
         (At = x()),
         (jt = h("h3")),
         (Dt = v(Ht)),
@@ -14548,7 +14548,7 @@ function Hm(i) {
         (pt = h("div")),
         (bt = h("div")),
         (bt.innerHTML =
-          '<i class="fas fa-arrow-up text-green-400 text-sm"></i>'),
+          '<i class="fas fa-arrow-up text-blue-400 text-sm"></i>'),
         (kt = x()),
         (Lt = h("span")),
         (Ft = v($t)),
@@ -14560,7 +14560,7 @@ function Hm(i) {
         (te = h("div")),
         (Re = h("div")),
         (Re.innerHTML =
-          '<i class="fas fa-arrow-down text-red-400 text-sm"></i>'),
+          '<i class="fas fa-arrow-down text-orange-400 text-sm"></i>'),
         (ye = x()),
         (Rt = h("span")),
         (Ae = v(Se)),
@@ -14618,7 +14618,7 @@ function Hm(i) {
         f(r, "class", "text-white/60"),
         f(b, "src", "../web/src/assets/images/zona-norte-logo.png"),
         f(b, "class", "object-contain"),
-        f(b, "style", "height: 5rem"),
+        f(b, "style", "height: 6.5rem"),
         f(b, "alt", "Zona Norte"),
         f(y, "class", "hidden"),
         f(g, "class", ""),
@@ -14661,7 +14661,7 @@ function Hm(i) {
         f(
           se,
           "class",
-          "w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center",
+          "w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center",
         ),
         f(jt, "class", "text-xl font-semibold text-white"),
         f(Vt, "class", "flex items-center space-x-3"),
@@ -14669,11 +14669,11 @@ function Hm(i) {
         f(
           bt,
           "class",
-          "w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center",
+          "w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center",
         ),
         f(Lt, "class", "text-white/80"),
         f(pt, "class", "flex items-center space-x-3"),
-        f(we, "class", "text-green-400 font-semibold"),
+        f(we, "class", "text-blue-400 font-semibold"),
         f(
           E,
           "class",
@@ -14682,11 +14682,11 @@ function Hm(i) {
         f(
           Re,
           "class",
-          "w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center",
+          "w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center",
         ),
         f(Rt, "class", "text-white/80"),
         f(te, "class", "flex items-center space-x-3"),
-        f(Pt, "class", "text-red-400 font-semibold"),
+        f(Pt, "class", "text-orange-400 font-semibold"),
         f(
           Jt,
           "class",
@@ -15057,7 +15057,7 @@ function Ym(i, t, e) {
               {
                 label: n.weekly_summary,
                 data: [0, 0],
-                backgroundColor: ["#3b82f6", "#ef4444"],
+                backgroundColor: ["#3b82f6", "#fb923c"],
               },
             ],
           },
@@ -15372,11 +15372,11 @@ function Jm(i) {
       ((t = h("div")),
         (e = h("span")),
         (s = v(n)),
-        f(e, "class", "text-green-400 text-sm font-medium"),
+        f(e, "class", "text-blue-400 text-sm font-medium"),
         f(
           t,
           "class",
-          "px-4 py-2 bg-green-500/20 rounded-lg border border-green-500/30",
+          "px-4 py-2 bg-blue-500/20 rounded-lg border border-blue-500/30",
         ));
     },
     m(o, l) {
@@ -15524,7 +15524,7 @@ function _c(i, t) {
         f(
           N,
           "class",
-          (U = `text-lg font-bold ${t[9].isIncome ? "text-green-400" : "text-red-400"}`),
+          (U = `text-lg font-bold ${t[9].isIncome ? "text-blue-400" : "text-orange-400"}`),
         ),
         f(W, "class", "flex items-center space-x-4"),
         f(n, "class", "flex items-center justify-between"),
@@ -15576,7 +15576,7 @@ function _c(i, t) {
         (!et ||
           (tt & 4 &&
             U !==
-              (U = `text-lg font-bold ${t[9].isIncome ? "text-green-400" : "text-red-400"}`))) &&
+              (U = `text-lg font-bold ${t[9].isIncome ? "text-blue-400" : "text-orange-400"}`))) &&
           f(N, "class", U),
         ct === (ct = q(t)) && G
           ? G.p(t, tt)
@@ -15659,7 +15659,7 @@ function e_(i) {
           (m = h("div")),
           (_ = h("div")),
           (g = h("div")),
-          (b = h("i")),
+          (b = h("div")),
           (w = x()),
           (y = h("span")),
           (k = v(S)),
@@ -15677,7 +15677,7 @@ function e_(i) {
           nt.c(),
           f(s, "class", "text-3xl font-bold text-white mb-2"),
           f(r, "class", "text-white/60"),
-          f(b, "class", "fas fa-file-invoice text-yellow-400"),
+          f(b, "class", "w-2 h-2 bg-orange-400 rounded-full"),
           f(y, "class", "text-sm text-white/80"),
           f(g, "class", "flex items-center space-x-2"),
           f(_, "class", "modern-card px-4 py-2"),
@@ -16088,12 +16088,12 @@ function vc(i, t) {
         f(
           l,
           "class",
-          (a = `fas ${t[12].isIncome ? "fa-arrow-down text-green-400" : "fa-arrow-up text-red-400"} text-lg`),
+          (a = `fas ${t[12].isIncome ? "fa-arrow-down text-blue-400" : "fa-arrow-up text-orange-400"} text-lg`),
         ),
         f(
           o,
           "class",
-          (r = `w-12 h-12 rounded-xl flex items-center justify-center ${t[12].isIncome ? "bg-green-500/20" : "bg-red-500/20"}`),
+          (r = `w-12 h-12 rounded-xl flex items-center justify-center ${t[12].isIncome ? "bg-blue-500/20" : "bg-orange-500/20"}`),
         ),
         f(m, "class", "text-white font-semibold truncate"),
         f(w, "class", "text-white/50 text-sm"),
@@ -16104,7 +16104,7 @@ function vc(i, t) {
         f(
           j,
           "class",
-          (K = `text-lg font-bold ${t[12].isIncome ? "text-green-400" : "text-red-400"}`),
+          (K = `text-lg font-bold ${t[12].isIncome ? "text-blue-400" : "text-orange-400"}`),
         ),
         f(et, "class", "text-xs text-white/50 mt-1"),
         f(V, "class", "text-right"),
@@ -16151,12 +16151,12 @@ function vc(i, t) {
         (!G ||
           (dt & 2 &&
             a !==
-              (a = `fas ${t[12].isIncome ? "fa-arrow-down text-green-400" : "fa-arrow-up text-red-400"} text-lg`))) &&
+              (a = `fas ${t[12].isIncome ? "fa-arrow-down text-blue-400" : "fa-arrow-up text-orange-400"} text-lg`))) &&
           f(l, "class", a),
         (!G ||
           (dt & 2 &&
             r !==
-              (r = `w-12 h-12 rounded-xl flex items-center justify-center ${t[12].isIncome ? "bg-green-500/20" : "bg-red-500/20"}`))) &&
+              (r = `w-12 h-12 rounded-xl flex items-center justify-center ${t[12].isIncome ? "bg-blue-500/20" : "bg-orange-500/20"}`))) &&
           f(o, "class", r),
         (!G || dt & 2) && _ !== (_ = t[12].description + "") && L(g, _),
         (!G || dt & 2) && S !== (S = t[12].id + "") && L(k, S),
@@ -16169,7 +16169,7 @@ function vc(i, t) {
         (!G ||
           (dt & 2 &&
             K !==
-              (K = `text-lg font-bold ${t[12].isIncome ? "text-green-400" : "text-red-400"}`))) &&
+              (K = `text-lg font-bold ${t[12].isIncome ? "text-blue-400" : "text-orange-400"}`))) &&
           f(j, "class", K),
         (!G || dt & 6) &&
           lt !== (lt = (t[12].isIncome ? t[2].received : t[2].sent) + "") &&
@@ -16971,7 +16971,7 @@ function w_(i) {
         (Nt = h("div")),
         (Ct = h("div")),
         (Tt = h("div")),
-        (Tt.innerHTML = '<i class="fas fa-wallet text-green-400 text-lg"></i>'),
+        (Tt.innerHTML = '<i class="fas fa-wallet text-blue-400 text-lg"></i>'),
         (vt = x()),
         (xt = h("div")),
         (ae = h("p")),
@@ -16996,7 +16996,7 @@ function w_(i) {
         Pt && Pt.c(),
         f(s, "class", "text-3xl font-bold text-white mb-2"),
         f(r, "class", "text-white/60"),
-        f(b, "class", "w-2 h-2 bg-red-400 rounded-full animate-pulse"),
+        f(b, "class", "w-2 h-2 bg-orange-400 rounded-full animate-pulse"),
         f(y, "class", "text-sm text-white/80"),
         f(g, "class", "flex items-center space-x-2"),
         f(_, "class", "modern-card px-4 py-2"),
@@ -17024,7 +17024,7 @@ function w_(i) {
         f(
           G,
           "class",
-          "w-full bg-white/5 text-white text-xl font-semibold pl-12 pr-4 py-4 rounded-xl border border-white/10 focus:outline-none focus:border-red-500/50 transition-colors",
+          "w-full bg-white/5 text-white text-xl font-semibold pl-12 pr-4 py-4 rounded-xl border border-white/10 focus:outline-none focus:border-orange-500/50 transition-colors",
         ),
         f(G, "placeholder", (X = i[3].enter_amount)),
         f(G, "max", i[1]),
@@ -17055,13 +17055,13 @@ function w_(i) {
         f(
           Tt,
           "class",
-          "w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center",
+          "w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center",
         ),
         f(ae, "class", "text-white/60 text-sm"),
         f(zt, "class", "text-2xl font-bold text-white"),
         f(Ct, "class", "flex items-center space-x-4"),
         f(se, "class", "text-white/60 text-sm"),
-        f(Dt, "class", "text-xl font-bold text-red-400"),
+        f(Dt, "class", "text-xl font-bold text-orange-400"),
         f(Vt, "class", "text-right"),
         f(Nt, "class", "flex items-center justify-between"),
         f(Ut, "class", "modern-card p-6"),
@@ -17069,7 +17069,7 @@ function w_(i) {
         f(
           E,
           "class",
-          "w-full action-button py-4 text-lg font-semibold bg-red-500/10 border-red-500/30 hover:bg-red-500/20 disabled:opacity-50 disabled:cursor-not-allowed",
+          "w-full action-button py-4 text-lg font-semibold bg-orange-500/10 border-orange-500/30 hover:bg-orange-500/20 disabled:opacity-50 disabled:cursor-not-allowed",
         ),
         (E.disabled = $t = i[0] <= 0 || i[0] > i[1]),
         f(at, "class", "modern-card p-6"),
@@ -17575,7 +17575,7 @@ function O_(i) {
         (F = h("div")),
         (D = h("div")),
         (I = h("div")),
-        (I.innerHTML = '<i class="fas fa-wallet text-green-400 text-lg"></i>'),
+        (I.innerHTML = '<i class="fas fa-wallet text-blue-400 text-lg"></i>'),
         (W = x()),
         (N = h("div")),
         (O = h("p")),
@@ -17637,7 +17637,7 @@ function O_(i) {
         Pt && Pt.c(),
         f(s, "class", "text-3xl font-bold text-white mb-2"),
         f(r, "class", "text-white/60"),
-        f(b, "class", "w-2 h-2 bg-green-400 rounded-full animate-pulse"),
+        f(b, "class", "w-2 h-2 bg-blue-400 rounded-full animate-pulse"),
         f(y, "class", "text-sm text-white/80"),
         f(g, "class", "flex items-center space-x-2"),
         f(_, "class", "modern-card px-4 py-2"),
@@ -17646,7 +17646,7 @@ function O_(i) {
         f(
           I,
           "class",
-          "w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center",
+          "w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center",
         ),
         f(O, "class", "text-white/60 text-sm"),
         f($, "class", "text-2xl font-bold text-white"),
@@ -17665,7 +17665,7 @@ function O_(i) {
         f(
           G,
           "class",
-          "w-full bg-white/5 text-white text-xl font-semibold pl-12 pr-4 py-4 rounded-xl border border-white/10 focus:outline-none focus:border-green-500/50 transition-colors",
+          "w-full bg-white/5 text-white text-xl font-semibold pl-12 pr-4 py-4 rounded-xl border border-white/10 focus:outline-none focus:border-blue-500/50 transition-colors",
         ),
         f(G, "placeholder", (X = i[2].enter_amount)),
         f(G, "max", i[3]),
@@ -17702,7 +17702,7 @@ function O_(i) {
         f(zt, "class", "text-2xl font-bold text-white"),
         f(Ct, "class", "flex items-center space-x-4"),
         f(se, "class", "text-white/60 text-sm"),
-        f(Dt, "class", "text-xl font-bold text-green-400"),
+        f(Dt, "class", "text-xl font-bold text-blue-400"),
         f(Vt, "class", "text-right"),
         f(Nt, "class", "flex items-center justify-between"),
         f(Ut, "class", "modern-card p-6"),
@@ -17710,7 +17710,7 @@ function O_(i) {
         f(
           E,
           "class",
-          "w-full action-button py-4 text-lg font-semibold bg-green-500/10 border-green-500/30 hover:bg-green-500/20 disabled:opacity-50 disabled:cursor-not-allowed",
+          "w-full action-button py-4 text-lg font-semibold bg-blue-500/10 border-blue-500/30 hover:bg-blue-500/20 disabled:opacity-50 disabled:cursor-not-allowed",
         ),
         (E.disabled = $t = i[0] <= 0 || i[0] > i[3]),
         f(at, "class", "modern-card p-6"),
@@ -19708,7 +19708,7 @@ function Mg(i) {
         f(
           t,
           "class",
-          "px-2 py-1 bg-green-500/20 rounded-full text-green-400 text-xs",
+          "px-2 py-1 bg-blue-500/20 rounded-full text-blue-400 text-xs",
         ));
     },
     m(s, o) {
@@ -20126,12 +20126,12 @@ function Dc(i, t) {
         f(
           l,
           "class",
-          (a = `fas ${t[77].type === "savings" ? "fa-piggy-bank text-green-400" : t[77].type === "business" ? "fa-briefcase text-green-400" : "fa-wallet text-orange-400"} text-lg`),
+          (a = `fas ${t[77].type === "savings" ? "fa-piggy-bank text-white/40" : t[77].type === "business" ? "fa-briefcase text-green-400" : "fa-wallet text-orange-400"} text-lg`),
         ),
         f(
           o,
           "class",
-          (r = `w-12 h-12 rounded-xl flex items-center justify-center ${t[77].type === "savings" || t[77].type === "business" ? "bg-green-500/20" : "bg-orange-500/20"}`),
+          (r = `w-12 h-12 rounded-xl flex items-center justify-center ${t[77].type === "savings" ? "bg-white/5" : t[77].type === "business" ? "bg-green-500/20" : "bg-orange-500/20"}`),
         ),
         f(m, "class", "text-white font-semibold truncate"),
         f(p, "class", "flex items-center space-x-2 mb-1"),
@@ -20146,14 +20146,14 @@ function Dc(i, t) {
         f(
           q,
           "class",
-          "p-2 bg-blue-500/20 rounded-lg text-blue-400 hover:bg-blue-500/30 transition-colors",
+          "p-2 bg-white/5 rounded-lg text-white/40 hover:bg-white/10 transition-colors",
         ),
         f(q, "title", (G = t[0].view_details)),
         f(H, "class", "fas fa-plus"),
         f(
           tt,
           "class",
-          "p-2 bg-green-500/20 rounded-lg text-green-400 hover:bg-green-500/30 transition-colors",
+          "p-2 bg-blue-500/20 rounded-lg text-blue-400 hover:bg-blue-500/30 transition-colors",
         ),
         f(tt, "title", (st = t[0].deposit_money)),
         f(z, "class", "fas fa-minus"),
@@ -20167,7 +20167,7 @@ function Dc(i, t) {
         f(
           ot,
           "class",
-          "p-2 bg-green-500/20 rounded-lg text-green-400 hover:bg-green-500/30 transition-colors",
+          "p-2 bg-blue-500/20 rounded-lg text-blue-400 hover:bg-blue-500/30 transition-colors",
         ),
         f(ot, "title", (gt = t[0].add_user)),
         f(Ct, "class", "fas fa-trash"),
@@ -20253,12 +20253,12 @@ function Dc(i, t) {
         (!Bt ||
           (Ft[0] & 131072 &&
             a !==
-              (a = `fas ${t[77].type === "savings" ? "fa-piggy-bank text-green-400" : t[77].type === "business" ? "fa-briefcase text-green-400" : "fa-wallet text-orange-400"} text-lg`))) &&
+              (a = `fas ${t[77].type === "savings" ? "fa-piggy-bank text-white/40" : t[77].type === "business" ? "fa-briefcase text-green-400" : "fa-wallet text-orange-400"} text-lg`))) &&
           f(l, "class", a),
         (!Bt ||
           (Ft[0] & 131072 &&
             r !==
-              (r = `w-12 h-12 rounded-xl flex items-center justify-center ${t[77].type === "savings" || t[77].type === "business" ? "bg-green-500/20" : "bg-orange-500/20"}`))) &&
+              (r = `w-12 h-12 rounded-xl flex items-center justify-center ${t[77].type === "savings" ? "bg-white/5" : t[77].type === "business" ? "bg-green-500/20" : "bg-orange-500/20"}`))) &&
           f(o, "class", r),
         (!Bt || Ft[0] & 131072) && _ !== (_ = t[77].name + "") && L(g, _),
         se === (se = Vt(t)) && At
@@ -21737,7 +21737,7 @@ function Ig(i) {
         (vt = nn()),
         f(s, "class", "text-3xl font-bold text-white mb-2"),
         f(r, "class", "text-white/60"),
-        f(b, "class", "fas fa-piggy-bank text-green-400"),
+        f(b, "class", "fas fa-piggy-bank text-white/40"),
         f(y, "class", "text-sm text-white/80"),
         f(g, "class", "flex items-center space-x-2"),
         f(_, "class", "modern-card px-4 py-2"),
@@ -23019,7 +23019,7 @@ function Zg(i) {
           (d = h("div")),
           (p = h("div")),
           (p.innerHTML =
-            '<i class="fas fa-wallet text-green-400 text-lg"></i>'),
+            '<i class="fas fa-wallet text-blue-400 text-lg"></i>'),
           (m = x()),
           (_ = h("div")),
           (g = h("p")),
@@ -23050,7 +23050,7 @@ function Zg(i) {
           f(
             p,
             "class",
-            "w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center",
+            "w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center",
           ),
           f(g, "class", "text-sm text-white/60"),
           f(w, "class", "text-xl font-bold text-white truncate"),
