@@ -45,11 +45,70 @@ local function getName(player)
 	end
 end
 
-local function logTransaction(identifier, description, accountName, amount, isIncome)
+local function formatMoney(amount)
+	amount = tonumber(amount) or 0
+	local formatted = string.format("%.2f", amount)
+	local integer, decimal = formatted:match("(%d+)%.(%d+)")
+	local result = integer:reverse():gsub("(%d%d%d)", "%1."):reverse():gsub("^%.", "")
+	return "R$ " .. result .. "," .. decimal
+end
+
+local function sendDiscordLog(title, color, fields)
+	if not Config.Discord or not Config.Discord.Enabled
+		or not Config.Discord.WebhookURL or Config.Discord.WebhookURL == "" then
+		return
+	end
+	local embed = {
+		{
+			title  = title,
+			color  = color or Config.Discord.Color.deposit,
+			fields = fields or {},
+			timestamp = os.date("!%Y-%m-%dT%H:%M:%SZ"),
+			footer = {
+				text     = "PS Banking",
+				icon_url = Config.Discord.BotAvatar ~= "" and Config.Discord.BotAvatar or nil,
+			},
+		}
+	}
+	PerformHttpRequest(Config.Discord.WebhookURL, function() end, "POST", json.encode({
+		username   = Config.Discord.BotName or "PS Banking",
+		avatar_url = Config.Discord.BotAvatar ~= "" and Config.Discord.BotAvatar or nil,
+		embeds     = embed,
+	}), { ["Content-Type"] = "application/json" })
+end
+
+local function logTransaction(identifier, description, accountName, amount, isIncome, playerName, logType)
 	MySQL.insert.await(
 		"INSERT INTO ps_banking_transactions (identifier, description, type, amount, date, isIncome) VALUES (?, ?, ?, ?, NOW(), ?)",
 		{ identifier, description, accountName, amount, isIncome }
 	)
+
+	if not (Config.Discord and Config.Discord.Enabled and logType and Config.Discord.LogTypes[logType]) then
+		return
+	end
+
+	local titles = {
+		deposits    = isIncome and "Deposito Bancario"         or "Saque Bancario",
+		withdrawals = isIncome and "Deposito Bancario"         or "Saque Bancario",
+		transfers   = isIncome and "Transferencia Recebida"    or "Transferencia Enviada",
+		bills       = isIncome and "Fatura Recebida"           or "Fatura Paga",
+		accounts    = isIncome and "Entrada em Conta Org."     or "Saida de Conta Org.",
+	}
+	local colorMap = {
+		deposits    = Config.Discord.Color.deposit,
+		withdrawals = Config.Discord.Color.withdraw,
+		transfers   = Config.Discord.Color.transfer,
+		bills       = Config.Discord.Color.bill,
+		accounts    = Config.Discord.Color.account,
+	}
+	local fields = {
+		{ name = "Jogador",    value = playerName or "Desconhecido", inline = true  },
+		{ name = "Conta",      value = tostring(accountName),        inline = true  },
+		{ name = "Valor",      value = formatMoney(amount),          inline = true  },
+		{ name = "Descricao",  value = tostring(description),        inline = false },
+		{ name = "Identifier", value = tostring(identifier),         inline = false },
+	}
+	sendDiscordLog(titles[logType] or "Transacao Bancaria", colorMap[logType], fields)
 end
 
 -- Society Compat MRI
@@ -89,7 +148,7 @@ local function addMoney(accountName, amount, reason)
         local identifier = ownerData and ownerData.identifier or nil
 
         if identifier then
-            logTransaction(identifier, reason, accountName, amount, true)
+            logTransaction(identifier, reason, accountName, amount, true, ownerData.name, "accounts")
         end
 
         return true
@@ -111,7 +170,7 @@ local function removeMoney(accountName, amount, reason)
         local identifier = ownerData and ownerData.identifier or nil
 
         if identifier then
-            logTransaction(identifier, reason, accountName, amount, false)
+            logTransaction(identifier, reason, accountName, amount, false, ownerData.name, "accounts")
         end
 
         return true
@@ -178,7 +237,9 @@ local function createBankStatement(playerId, account, amount, reason, statementT
 		return false
 	end
 
-	logTransaction(getPlayerIdentifier(xPlayer), reason, account, amount, statementType == "deposit")
+	local isDeposit = statementType == "deposit"
+	logTransaction(getPlayerIdentifier(xPlayer), reason, account, amount, isDeposit,
+		getName(xPlayer), isDeposit and "deposits" or "withdrawals")
 	return true
 end
 exports("CreateBankStatement", createBankStatement)
@@ -295,7 +356,11 @@ lib.callback.register("ps-banking:server:transferMoney", function(source, data)
 					xPlayer.Functions.RemoveMoney("bank", amount)
 					targetPlayer.Functions.AddMoney("bank", amount)
 				end
-				return true, locale("money_sent", amount, getName(targetPlayer))
+				local senderName   = getName(xPlayer)
+				local receiverName = getName(targetPlayer)
+				logTransaction(getPlayerIdentifier(xPlayer),      "Transferencia enviada para " .. receiverName,  "bank", amount, false, senderName,   "transfers")
+				logTransaction(getPlayerIdentifier(targetPlayer), "Transferencia recebida de "  .. senderName,    "bank", amount, true,  receiverName, "transfers")
+				return true, locale("money_sent", amount, receiverName)
 			elseif data.method == "phone" then
 				exports["lb-phone"]:AddTransaction(
 					targetPlayer.identifier,
@@ -337,7 +402,8 @@ RegisterNetEvent("ps-banking:server:logClient", function(account, moneyData)
 	if amountChange ~= 0 then
 		local isIncome = currentBankBalance >= previousBankBalance and true or false
 		local description = locale("transaction_description")
-		logTransaction(identifier, description, account.name, math.abs(amountChange), isIncome)
+		logTransaction(identifier, description, account.name, math.abs(amountChange), isIncome,
+			getName(xPlayer), isIncome and "deposits" or "withdrawals")
 	end
 end)
 
@@ -520,6 +586,10 @@ lib.callback.register("ps-banking:server:withdrawFromAccount", function(source, 
 				elseif framework == "QBCore" then
 					xPlayer.Functions.AddMoney("bank", amount)
 				end
+				logTransaction(getPlayerIdentifier(xPlayer),
+					"Saque da conta " .. account[1].holder,
+					account[1].holder, amount, false,
+					getName(xPlayer), "accounts")
 				return true
 			else
 				return false
@@ -539,6 +609,7 @@ lib.callback.register("ps-banking:server:depositToAccount", function(source, acc
 	end
     local bankBalance = getPlayerAccounts(xPlayer)
 	if tonumber(bankBalance) >= tonumber(amount) then
+		local accountData = MySQL.query.await("SELECT holder FROM ps_banking_accounts WHERE id = ?", { accountId })
 		local affectedRows = MySQL.update.await(
 			"UPDATE ps_banking_accounts SET balance = balance + ? WHERE id = ?",
 			{ amount, accountId }
@@ -549,6 +620,11 @@ lib.callback.register("ps-banking:server:depositToAccount", function(source, acc
 			elseif framework == "QBCore" then
 				xPlayer.Functions.RemoveMoney("bank", amount)
 			end
+			local holderName = (#accountData > 0) and accountData[1].holder or tostring(accountId)
+			logTransaction(getPlayerIdentifier(xPlayer),
+				"Deposito na conta " .. holderName,
+				holderName, amount, true,
+				getName(xPlayer), "accounts")
 			return true
 		else
 			return false
@@ -658,6 +734,8 @@ lib.callback.register("ps-banking:server:ATMwithdraw", function(source, amount)
 			xPlayer.Functions.RemoveMoney("bank", amount)
 			xPlayer.Functions.AddMoney("cash", amount)
 		end
+		logTransaction(getPlayerIdentifier(xPlayer), "Saque no ATM", "bank", amount, false,
+			getName(xPlayer), "withdrawals")
 		return true
 	else
 		return false
@@ -681,6 +759,8 @@ lib.callback.register("ps-banking:server:ATMdeposit", function(source, amount)
 			xPlayer.Functions.RemoveMoney("cash", amount)
 			xPlayer.Functions.AddMoney("bank", amount)
 		end
+		logTransaction(getPlayerIdentifier(xPlayer), "Deposito no ATM", "bank", amount, true,
+			getName(xPlayer), "deposits")
 		return true
 	else
 		return false
@@ -722,8 +802,8 @@ lib.callback.register("ps-banking:server:payBill", function(source, billId)
 			-- senderPlayer.Functions.AddMoney("bank", tonumber(amount))
 			exports.qbx_core:AddMoney(identifier2, "bank", amount, "Fatura recebida: ".. bill.description)
 
-			logTransaction(identifier2, "Fatura recebida: ".. bill.description, xPlayerName, amount, true)
-			logTransaction(identifier, "Fatura paga: ".. bill.description, xPlayerName, amount, false)
+			logTransaction(identifier2, "Fatura recebida: ".. bill.description, xPlayerName, amount, true, senderName, "bills")
+			logTransaction(identifier, "Fatura paga: ".. bill.description, xPlayerName, amount, false, xPlayerName, "bills")
 
 			local senderSource = exports.qbx_core:GetSource(senderLicense)
 			print(xPlayerName .. " pagou uma fatura de R$" .. amount, "ID", senderSource)

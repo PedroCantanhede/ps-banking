@@ -49,3 +49,25 @@ Config.ATM_Models = {
     "prop_atm_03",
     "prop_fleeca_atm",
 }
+
+-- Discord Webhook
+Config.Discord = {
+    Enabled = false,          -- true para ativar os logs, false para desativar
+    WebhookURL = "",          -- Cole a URL do webhook aqui
+    BotName = "PS Banking",
+    BotAvatar = "",           -- URL do avatar do bot (opcional)
+    Color = {
+        deposit  = 3066993,   -- Verde  (depositos)
+        withdraw = 15158332,  -- Vermelho (saques)
+        transfer = 3447003,   -- Azul (transferencias)
+        bill     = 16776960,  -- Amarelo (faturas)
+        account  = 10181046,  -- Roxo (contas organizacionais)
+    },
+    LogTypes = {
+        deposits   = true,  -- Depositos ATM e conta pessoal
+        withdrawals = true,  -- Saques ATM e conta pessoal
+        transfers  = true,  -- Transferencias entre jogadores
+        bills      = true,  -- Pagamento de faturas
+        accounts   = true,  -- Movimentacoes em contas organizacionais
+    },
+}
